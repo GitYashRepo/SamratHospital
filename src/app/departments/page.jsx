@@ -3,6 +3,7 @@
 
 import { Heart, Brain, Bone, Baby, Activity, Stethoscope, Users, Clock, Award, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link";
 
 const DepartmentsPage = () => {
    const departments = [
@@ -321,14 +322,16 @@ const DepartmentsPage = () => {
                                     <p className="text-2xl font-bold text-[#F77F00]">{dept.beds}</p>
                                  </div>
 
-                                 <Button
-                                    style={{
-                                       background: `linear-gradient(to right, ${dept.color.split(" to ")[0]}, ${dept.color.split(" to ")[1]})`,
-                                    }}
-                                    className="text-white font-medium rounded-lg hover:opacity-90 h-auto py-2"
-                                 >
-                                    Book Appointment
-                                 </Button>
+                                 <Link href="book-appointment">
+                                    <Button
+                                       style={{
+                                          background: `linear-gradient(to right, ${dept.color.split(" to ")[0]}, ${dept.color.split(" to ")[1]})`,
+                                       }}
+                                       className="text-white font-medium rounded-lg hover:opacity-90 h-auto py-2"
+                                    >
+                                       Book Appointment
+                                    </Button>
+                                 </Link>
                               </div>
                            </div>
                         </details>
@@ -397,9 +400,11 @@ const DepartmentsPage = () => {
                <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
                   Contact us today to schedule an appointment with one of our specialized departments.
                </p>
-               <Button className="bg-white text-[#00A896] hover:bg-gray-100 px-8 py-6 rounded-full text-base font-medium shadow-lg">
-                  Book Appointment
-               </Button>
+               <Link href="book-appointment">
+                  <Button className="bg-white text-[#00A896] hover:bg-gray-100 px-8 py-6 rounded-full text-base font-medium shadow-lg">
+                     Book Appointment
+                  </Button>
+               </Link>
             </div>
          </section>
       </div>

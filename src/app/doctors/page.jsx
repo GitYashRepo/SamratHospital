@@ -2,6 +2,7 @@
 
 import { Star, Award, Clock, Users } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link";
 
 const DoctorsPage = () => {
    const doctors = [
@@ -252,12 +253,14 @@ const DoctorsPage = () => {
 
                            {/* Action Buttons */}
                            <div className="flex gap-2">
-                              <Button
-                                 style={{ background: doctor.color }}
-                                 className="flex-1 text-white rounded-lg text-sm font-medium hover:opacity-90"
-                              >
-                                 Book Appointment
-                              </Button>
+                              <Link href="book-appointment">
+                                 <Button
+                                    style={{ background: doctor.color }}
+                                    className="flex-1 text-white rounded-lg text-sm font-medium hover:opacity-90"
+                                 >
+                                    Book Appointment
+                                 </Button>
+                              </Link>
                               <Button
                                  variant="outline"
                                  style={{ borderColor: doctor.color, color: doctor.color }}
