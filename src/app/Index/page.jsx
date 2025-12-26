@@ -12,23 +12,23 @@ const Index = () => {
    ];
 
    const stats = [
-      { value: "50+", label: "Years of Excellence", icon: Award },
-      { value: "200+", label: "Expert Doctors", icon: Users },
-      { value: "50K+", label: "Happy Patients", icon: Heart },
+      { value: "5+", label: "Years of Excellence", icon: Award },
+      { value: "20+", label: "Expert Doctors", icon: Users },
+      { value: "10K+", label: "Happy Patients", icon: Heart },
       { value: "24/7", label: "Emergency Care", icon: Clock },
    ];
 
    const doctors = [
-      { name: "Dr. Sarah Mitchell", specialty: "Cardiology", image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop&crop=faces", color: "#D62828" },
-      { name: "Dr. James Chen", specialty: "Neurology", image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=500&fit=crop&crop=faces", color: "#7B2D8E" },
-      { name: "Dr. Emily Rodriguez", specialty: "Pediatrics", image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=500&fit=crop&crop=faces", color: "#F77F00" },
-      { name: "Dr. Michael Thompson", specialty: "Orthopedics", image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=500&fit=crop&crop=faces", color: "#00A896" },
+      { name: "Dr. Priya", specialty: "Cardiology", image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop&crop=faces", color: "#D62828" },
+      { name: "Dr. Manish", specialty: "Neurology", image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=500&fit=crop&crop=faces", color: "#7B2D8E" },
+      { name: "Dr. Sejal", specialty: "Pediatrics", image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=500&fit=crop&crop=faces", color: "#F77F00" },
+      { name: "Dr. Yuvraj", specialty: "Orthopedics", image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=500&fit=crop&crop=faces", color: "#00A896" },
    ];
 
    const testimonials = [
-      { name: "Robert Williams", text: "The care I received was exceptional. The doctors and staff made me feel comfortable throughout my treatment.", rating: 5, department: "Cardiology" },
-      { name: "Jennifer Adams", text: "From the moment I walked in, I knew I was in good hands. Professional, caring, and highly skilled team.", rating: 5, department: "Orthopedics" },
-      { name: "David Martinez", text: "After my surgery, the follow-up care was outstanding. I'm grateful for the entire HealWell team.", rating: 5, department: "Neurology" },
+      { name: "Ajay Singh", text: "The care I received was exceptional. The doctors and staff made me feel comfortable throughout my treatment.", rating: 5, department: "Cardiology" },
+      { name: "Shreya Mehra", text: "From the moment I walked in, I knew I was in good hands. Professional, caring, and highly skilled team.", rating: 5, department: "Orthopedics" },
+      { name: "Keshav Gupta", text: "After my surgery, the follow-up care was outstanding. I'm grateful for the entire Samrat Hospital team.", rating: 5, department: "Neurology" },
    ];
 
    return (
@@ -113,7 +113,7 @@ const Index = () => {
                            </div>
                            <div>
                               <p className="text-xs text-gray-500 font-medium">24/7 Emergency</p>
-                              <p className="text-xl font-bold text-[#1E3A5F]">+1 (234) 567-890</p>
+                              <p className="text-xl font-bold text-[#1E3A5F]">+91 (234) 567-890</p>
                            </div>
                         </div>
                      </div>
@@ -125,7 +125,7 @@ const Index = () => {
                               <Users className="w-5 h-5 text-white" />
                            </div>
                            <div>
-                              <p className="text-2xl font-bold text-[#1E3A5F]">200+</p>
+                              <p className="text-2xl font-bold text-[#1E3A5F]">20+</p>
                               <p className="text-xs text-gray-500">Expert Doctors</p>
                            </div>
                         </div>
@@ -330,7 +330,7 @@ const Index = () => {
                               Book Appointment
                               <ArrowRight className="w-5 h-5 ml-2" />
                            </Button>
-                           <Button variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-[#00A896] px-10 py-7 rounded-full text-lg font-semibold transition-all">
+                           <Button variant="outline" className="border-2 border-white text-teal-800 hover:bg-white hover:text-[#00A896] px-10 py-7 rounded-full text-lg font-semibold transition-all">
                               <Phone className="w-5 h-5 mr-2" />
                               Call Us Now
                            </Button>

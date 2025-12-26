@@ -42,7 +42,7 @@ const ContactPage = () => {
       {
          icon: MapPin,
          title: "Location",
-         details: ["123 Healthcare Avenue", "Medical City, MC 12345"],
+         details: ["AZAD CHOK, Anand Nagar, Shanti Nagar,", "Rewari, Haryana, 123401"],
          color: "#F77F00",
       },
       {
@@ -54,7 +54,7 @@ const ContactPage = () => {
       {
          icon: Mail,
          title: "Email",
-         details: ["info@healwell.com", "appointments@healwell.com"],
+         details: ["info@Samrat Hospital.com", "appointments@Samrat Hospital.com"],
          color: "#FCBF49",
       },
       {
@@ -267,7 +267,7 @@ const ContactPage = () => {
                      </div>
                      <h3 className="text-xl font-bold text-[#1E3A5F] mb-3">Emergency Services</h3>
                      <p className="text-gray-600 mb-4">For life-threatening emergencies, call immediately:</p>
-                     <p className="text-2xl font-bold text-[#D62828]">911</p>
+                     <p className="text-2xl font-bold text-[#D62828]">+91 1234567890</p>
                   </div>
 
                   {/* Patient Portal */}

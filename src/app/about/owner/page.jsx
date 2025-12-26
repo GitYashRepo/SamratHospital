@@ -67,8 +67,8 @@ const OwnerPage = () => {
                <div className="grid lg:grid-cols-2 gap-12 items-center">
                   <div className="relative">
                      <img
-                        src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=600&h=700&fit=crop&crop=faces"
-                        alt="Dr. James Wilson"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3sxEw6DtEGqnq7hfRbU-YaP__kQC4Yvm4JQ&s"
+                        alt="Mr. Vikram Singh"
                         className="rounded-2xl shadow-2xl w-full"
                      />
                      <div
@@ -76,16 +76,16 @@ const OwnerPage = () => {
                         className="absolute bottom-0 right-0 bg-gradient-to-br p-6 rounded-xl text-white shadow-lg m-6"
                      >
                         <p className="text-sm font-semibold uppercase tracking-wide">Founder & CEO</p>
-                        <p className="text-2xl font-bold">Dr. James Wilson</p>
+                        <p className="text-2xl font-bold">Mr. Vikram Singh</p>
                      </div>
                   </div>
 
                   <div className="space-y-6">
                      <div>
-                        <h2 className="text-4xl font-bold text-[#1E3A5F] mb-4">Dr. James Wilson</h2>
+                        <h2 className="text-4xl font-bold text-[#1E3A5F] mb-4">Mr. Vikram Singh</h2>
                         <p className="text-lg text-gray-600 leading-relaxed">
                            An accomplished physician and healthcare entrepreneur with over 40 years of experience in medical
-                           practice and hospital management. Dr. Wilson founded HealWell Medical Center in 1985 with a vision to
+                           practice and hospital management. Mr. Vikram founded Samrat Hospital Medical Center in 1985 with a vision to
                            revolutionize healthcare delivery in our community.
                         </p>
                      </div>
@@ -104,7 +104,7 @@ const OwnerPage = () => {
                            <ul className="space-y-2 text-gray-600">
                               <li className="flex items-start gap-3">
                                  <span className="text-[#00A896] font-bold mt-1">✓</span>
-                                 <span>Transformed HealWell from a small clinic to a multi-specialty medical center</span>
+                                 <span>Transformed Samrat Hospital from a small clinic to a multi-specialty medical center</span>
                               </li>
                               <li className="flex items-start gap-3">
                                  <span className="text-[#00A896] font-bold mt-1">✓</span>
@@ -152,13 +152,13 @@ const OwnerPage = () => {
                         Every patient deserves compassionate, evidence-based care delivered by committed professionals in a
                         supportive environment."
                      </p>
-                     <p className="text-gray-600 italic">— Dr. James Wilson</p>
+                     <p className="text-gray-600 italic">— Mr. Vikram Singh</p>
                   </div>
 
                   <div className="space-y-6 text-gray-600 leading-relaxed">
                      <p>
-                        Dr. Wilson believes that exceptional healthcare requires three essential elements: skilled physicians,
-                        advanced technology, and a genuine commitment to patient well-being. Under his leadership, HealWell has
+                        Mr. Vikram believes that exceptional healthcare requires three essential elements: skilled physicians,
+                        advanced technology, and a genuine commitment to patient well-being. Under his leadership, Samrat Hospital has
                         consistently invested in all three.
                      </p>
 
@@ -169,7 +169,7 @@ const OwnerPage = () => {
                      </p>
 
                      <p>
-                        Through strategic planning and visionary leadership, Dr. Wilson has transformed HealWell into an
+                        Through strategic planning and visionary leadership, Mr. Vikram has transformed Samrat Hospital into an
                         institution known for medical excellence, patient satisfaction, and community impact. His legacy extends
                         beyond the hospital walls into the lives of thousands of patients and hundreds of healthcare
                         professionals he has mentored.
@@ -184,7 +184,7 @@ const OwnerPage = () => {
             <div className="container mx-auto px-6">
                <div className="text-center max-w-2xl mx-auto mb-16">
                   <h2 className="text-4xl font-bold text-[#1E3A5F] mb-4">Key Achievements</h2>
-                  <p className="text-gray-600">Defining moments in Dr. Wilson's leadership journey</p>
+                  <p className="text-gray-600">Defining moments in Mr. Vikram's leadership journey</p>
                </div>
 
                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -220,9 +220,9 @@ const OwnerPage = () => {
                <div className="max-w-3xl mx-auto text-center">
                   <h2 className="text-4xl font-bold mb-6">Vision for the Future</h2>
                   <p className="text-xl leading-relaxed">
-                     Dr. Wilson continues to lead HealWell toward a future where advanced medical technology, compassionate
+                     Mr. Vikram continues to lead Samrat Hospital toward a future where advanced medical technology, compassionate
                      care, and community health initiatives work together to create healthier, happier communities. His
-                     commitment to excellence ensures that HealWell remains at the forefront of healthcare innovation for
+                     commitment to excellence ensures that Samrat Hospital remains at the forefront of healthcare innovation for
                      generations to come.
                   </p>
                </div>
@@ -234,7 +234,7 @@ const OwnerPage = () => {
             <div className="container mx-auto px-6 text-center">
                <h2 className="text-4xl font-bold text-[#1E3A5F] mb-6">Have Questions?</h2>
                <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-                  Learn more about Dr. Wilson's vision and how HealWell can serve your healthcare needs.
+                  Learn more about Mr. Vikram's vision and how Samrat Hospital can serve your healthcare needs.
                </p>
                <Button
                   style={{ background: "linear-gradient(to right, #1E3A5F, #2B4A6F)" }}

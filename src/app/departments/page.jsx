@@ -342,7 +342,7 @@ const DepartmentsPage = () => {
          <section className="py-20 bg-white">
             <div className="container mx-auto px-6">
                <div className="text-center max-w-2xl mx-auto mb-16">
-                  <h2 className="text-4xl font-bold text-[#1E3A5F] mb-4">Why Choose HealWell Departments?</h2>
+                  <h2 className="text-4xl font-bold text-[#1E3A5F] mb-4">Why Choose Samrat Hospital Departments?</h2>
                   <p className="text-gray-600">
                      Excellence in specialized healthcare delivery across all medical disciplines
                   </p>

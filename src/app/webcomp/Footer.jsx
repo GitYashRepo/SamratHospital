@@ -9,12 +9,12 @@ const Footer = () => {
                <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                   <div>
                      <h3 className="text-xl font-bold text-white mb-1">Subscribe to Our Newsletter</h3>
-                     <p className="text-white/80 text-sm">Get health tips and updates delivered to your inbox</p>
+                     <p className="text-white/80 text-sm">Get health tips and updates delivered to your whatsapp</p>
                   </div>
                   <div className="flex items-center gap-3 w-full md:w-auto">
                      <input
-                        type="email"
-                        placeholder="Enter your email"
+                        type="text"
+                        placeholder="Enter your phone number"
                         className="flex-1 md:w-72 h-12 px-5 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
                      />
                      <button className="h-12 px-6 bg-[#F77F00] hover:bg-[#E76F00] text-white font-medium rounded-full transition-colors flex items-center gap-2 shadow-lg">
@@ -43,8 +43,8 @@ const Footer = () => {
                            <span className="text-white font-bold text-xl">H</span>
                         </div>
                         <div>
-                           <h3 className="text-lg font-bold text-white">HealWell</h3>
-                           <p className="text-[9px] text-[#7DD3C0] uppercase tracking-[0.2em] font-semibold">Medical Center</p>
+                           <h3 className="text-lg font-bold text-white">Samrat Hospital</h3>
+                           <p className="text-[9px] text-[#7DD3C0] uppercase font-semibold">Pain & Multi-speciality</p>
                         </div>
                      </div>
                      <p className="text-sm text-gray-300 leading-relaxed mb-6">
@@ -78,7 +78,7 @@ const Footer = () => {
                         <li><a href="#" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />Meet Our Doctors</a></li>
                         <li><a href="#" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />Departments</a></li>
                         <li><a href="#" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />Patient Testimonials</a></li>
-                        <li><a href="#" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />Careers</a></li>
+                        {/* <li><a href="#" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />Careers</a></li> */}
                      </ul>
                   </div>
 
@@ -109,7 +109,7 @@ const Footer = () => {
                            <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
                               <MapPin className="w-4 h-4 text-[#F77F00]" />
                            </div>
-                           <span className="text-sm text-gray-300">123 Healthcare Avenue,<br />Medical City, MC 12345</span>
+                           <span className="text-sm text-gray-300">AZAD CHOK, Anand Nagar, Shanti Nagar, <br /> Rewari, Haryana, 123401</span>
                         </li>
                         <li className="flex items-center gap-3">
                            <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0">
@@ -121,7 +121,7 @@ const Footer = () => {
                            <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0">
                               <Mail className="w-4 h-4 text-[#FCBF49]" />
                            </div>
-                           <a href="mailto:info@healwell.com" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors">info@healwell.com</a>
+                           <a href="mailto:info@Samrat Hospital.com" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors">info@samrathospital.com</a>
                         </li>
                         <li className="flex items-start gap-3">
                            <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
@@ -144,7 +144,7 @@ const Footer = () => {
             <div className="container mx-auto px-6">
                <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                   <p className="text-xs text-gray-400">
-                     © 2024 HealWell Medical Center. All rights reserved.
+                     © 2024 Samrat Hospital Medical Center. All rights reserved.
                   </p>
                   <div className="flex items-center gap-1 text-sm text-gray-400">
                      <span>Made with</span>
