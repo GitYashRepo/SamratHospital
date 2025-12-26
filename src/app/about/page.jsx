@@ -28,11 +28,10 @@ const AboutPage = () => {
    ]
 
    const milestones = [
-      { year: "1985", event: "HealWell Medical Center Founded" },
-      { year: "1995", event: "Expanded Emergency Department & ICU Services" },
-      { year: "2005", event: "Opened Advanced Diagnostic Center" },
-      { year: "2015", event: "Launched Digital Health Platform" },
-      { year: "2023", event: "Achieved JCI International Accreditation" },
+      { year: "2020", event: "Samrat Hospital Medical Center Founded" },
+      { year: "2021", event: "Expanded Emergency Department & ICU Services" },
+      { year: "2022", event: "Opened Advanced Diagnostic Center" },
+      { year: "2022", event: "Launched Digital Health Platform" },
    ]
 
    return (
@@ -51,7 +50,7 @@ const AboutPage = () => {
 
             <div className="container mx-auto px-6 relative">
                <div className="max-w-3xl">
-                  <h1 className="text-5xl md:text-6xl font-bold mb-6">About HealWell Medical Center</h1>
+                  <h1 className="text-5xl md:text-6xl font-bold mb-6">About Samrat Hospital Medical Center</h1>
                   <p className="text-xl text-gray-200 leading-relaxed">
                      For nearly four decades, we've been committed to providing exceptional healthcare services with a focus on
                      patient well-being, innovation, and community trust.
@@ -68,7 +67,7 @@ const AboutPage = () => {
                      <h2 className="text-4xl font-bold text-[#1E3A5F] mb-6">Our Story</h2>
                      <div className="space-y-4 text-gray-600 leading-relaxed">
                         <p>
-                           HealWell Medical Center was founded in 1985 with a singular vision: to create a healthcare institution
+                           Samrat Hospital Medical Center was founded in 1985 with a singular vision: to create a healthcare institution
                            that puts patients first. What started as a small community clinic has grown into a state-of-the-art
                            medical facility serving over 50,000 patients annually.
                         </p>
@@ -78,7 +77,7 @@ const AboutPage = () => {
                            physicians, and built a culture of compassion that defines our organization.
                         </p>
                         <p>
-                           Today, HealWell stands as a beacon of healthcare excellence in our region, recognized for our advanced
+                           Today, Samrat Hospital stands as a beacon of healthcare excellence in our region, recognized for our advanced
                            diagnostic capabilities, specialized departments, and patient-centered approach to medicine.
                         </p>
                      </div>
@@ -173,7 +172,7 @@ const AboutPage = () => {
             <div className="container mx-auto px-6">
                <div className="text-center max-w-2xl mx-auto mb-16">
                   <h2 className="text-4xl font-bold mb-4">Our Journey</h2>
-                  <p className="text-gray-200">A timeline of milestones that shaped HealWell Medical Center</p>
+                  <p className="text-gray-200">A timeline of milestones that shaped Samrat Hospital Medical Center</p>
                </div>
 
                <div className="max-w-4xl mx-auto">
@@ -245,7 +244,7 @@ const AboutPage = () => {
             className="py-20 text-white"
          >
             <div className="container mx-auto px-6 text-center">
-               <h2 className="text-4xl font-bold mb-6">Experience HealWell Difference</h2>
+               <h2 className="text-4xl font-bold mb-6">Experience Samrat Hospital Difference</h2>
                <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
                   Join thousands of patients who trust us with their healthcare needs. Schedule your appointment today.
                </p>

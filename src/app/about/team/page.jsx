@@ -33,42 +33,42 @@ const TeamPage = () => {
 
    const team = [
       {
-         name: "Dr. Sarah Mitchell",
+         name: "Dr. Priya Mittal",
          position: "Chief of Cardiology",
          image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop&crop=faces",
-         experience: "20+ years",
+         experience: "10+ years",
          specialization: "Interventional Cardiology",
       },
       {
-         name: "Dr. James Chen",
+         name: "Dr. Manish Yadav",
          position: "Chief of Neurology",
          image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=500&fit=crop&crop=faces",
          experience: "18+ years",
          specialization: "Neuro-surgery",
       },
       {
-         name: "Dr. Emily Rodriguez",
+         name: "Dr. Sejal Pandey",
          position: "Chief of Pediatrics",
          image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=500&fit=crop&crop=faces",
          experience: "15+ years",
          specialization: "Pediatric Emergency Medicine",
       },
       {
-         name: "Dr. Michael Thompson",
+         name: "Dr. Yuvraj Soni",
          position: "Chief of Orthopedics",
          image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=500&fit=crop&crop=faces",
          experience: "22+ years",
          specialization: "Joint Replacement Surgery",
       },
       {
-         name: "Dr. Lisa Anderson",
+         name: "Dr. Vivek Mishra",
          position: "Chief of Surgery",
          image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=faces",
          experience: "25+ years",
          specialization: "General & Trauma Surgery",
       },
       {
-         name: "Dr. Robert Martinez",
+         name: "Dr. Himanshu Singh",
          position: "Chief of Radiology",
          image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop&crop=faces",
          experience: "19+ years",
@@ -249,7 +249,7 @@ const TeamPage = () => {
 
                         <p>
                            Beyond physicians and nurses, our support staff—from administrative personnel to maintenance
-                           workers—play a crucial role in ensuring HealWell operates smoothly and patients receive comprehensive
+                           workers—play a crucial role in ensuring Samrat Hospital operates smoothly and patients receive comprehensive
                            care.
                         </p>
                      </div>

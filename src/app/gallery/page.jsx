@@ -133,7 +133,7 @@ const GalleryPage = () => {
                <div className="max-w-3xl">
                   <h1 className="text-5xl md:text-6xl font-bold mb-6">Gallery</h1>
                   <p className="text-xl text-gray-200 leading-relaxed">
-                     Explore HealWell Medical Center's state-of-the-art facilities, advanced medical equipment, and community
+                     Explore Samrat Hospital Medical Center's state-of-the-art facilities, advanced medical equipment, and community
                      events.
                   </p>
                </div>
@@ -227,7 +227,7 @@ const GalleryPage = () => {
             className="py-20 text-white"
          >
             <div className="container mx-auto px-6 text-center">
-               <h2 className="text-4xl font-bold mb-6">Experience HealWell in Person</h2>
+               <h2 className="text-4xl font-bold mb-6">Experience Samrat Hospital in Person</h2>
                <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
                   Visit us today to see our state-of-the-art facilities and meet our dedicated healthcare team.
                </p>
