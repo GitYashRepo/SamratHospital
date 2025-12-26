@@ -2,6 +2,7 @@
 
 import { Users, Award, Heart, Zap, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link";
 
 const AboutPage = () => {
    const values = [
@@ -248,9 +249,11 @@ const AboutPage = () => {
                <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
                   Join thousands of patients who trust us with their healthcare needs. Schedule your appointment today.
                </p>
-               <Button className="bg-white text-[#00A896] hover:bg-gray-100 px-8 py-6 rounded-full text-base font-medium">
-                  Book Appointment
-               </Button>
+               <Link href="book-appointment">
+                  <Button className="bg-white text-[#00A896] hover:bg-gray-100 px-8 py-6 rounded-full text-base font-medium">
+                     Book Appointment
+                  </Button>
+               </Link>
             </div>
          </section>
       </div>

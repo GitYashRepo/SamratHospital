@@ -2,6 +2,7 @@
 
 
 import { X, ZoomIn } from "lucide-react"
+import Link from "next/link"
 import { useState } from "react"
 
 const GalleryPage = () => {
@@ -231,9 +232,11 @@ const GalleryPage = () => {
                <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
                   Visit us today to see our state-of-the-art facilities and meet our dedicated healthcare team.
                </p>
-               <button className="bg-white text-[#00A896] hover:bg-gray-100 px-8 py-4 rounded-full text-base font-medium shadow-lg hover:shadow-xl transition-all">
-                  Book a Tour
-               </button>
+               <Link href="book-appointment">
+                  <button className="bg-white text-[#00A896] hover:bg-gray-100 px-8 py-4 rounded-full text-base font-medium shadow-lg hover:shadow-xl transition-all">
+                     Book an Appointment
+                  </button>
+               </Link>
             </div>
          </section>
 

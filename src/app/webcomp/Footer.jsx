@@ -5,7 +5,7 @@ const Footer = () => {
       <footer className="relative overflow-hidden">
          {/* Newsletter Section */}
          <div className="bg-gradient-to-r from-[#00A896] to-[#028090] py-12">
-            <div className="container mx-auto px-6">
+            <div className="mx-auto px-12">
                <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                   <div>
                      <h3 className="text-xl font-bold text-white mb-1">Subscribe to Our Newsletter</h3>
@@ -34,7 +34,7 @@ const Footer = () => {
                <div className="absolute top-1/2 left-1/2 w-48 h-48 rounded-full border border-white" />
             </div>
 
-            <div className="container mx-auto px-6 relative">
+            <div className="mx-auto px-12 relative">
                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
                   {/* About */}
                   <div>
@@ -140,8 +140,8 @@ const Footer = () => {
          </div>
 
          {/* Bottom Bar */}
-         <div className="bg-[#152C47] py-5">
-            <div className="container mx-auto px-6">
+         <div className="bg-[#152C47] py-5 pb-24 md:pb-2">
+            <div className="mx-auto px-6">
                <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                   <p className="text-xs text-gray-400">
                      © 2024 Samrat Hospital Medical Center. All rights reserved.
