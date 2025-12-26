@@ -5,7 +5,7 @@ import { X, ZoomIn } from "lucide-react"
 import { useState } from "react"
 
 const GalleryPage = () => {
-   const [selectedImage, setSelectedImage] = useState < string | null > (null)
+   const [selectedImage, setSelectedImage] = useState(null)
 
    const galleryImages = [
       {
