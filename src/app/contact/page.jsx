@@ -241,8 +241,7 @@ const ContactPage = () => {
                         loading="lazy"
                         allowFullScreen
                         referrerPolicy="no-referrer-when-downgrade"
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3024.1234567890123!2d-73.96!3d40.78!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c259a9b3117469%3A0x6fdf3b8c2e3d0!2s123%20Healthcare%20Ave!5e0!3m2!1sen!2sus!4v1234567890"
-                     />
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d204.88257387029512!2d76.62352189421654!3d28.201326066605727!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d5bf63d134e29%3A0x6c5bf53ee10da74a!2sSMS%20Hospital!5e1!3m2!1sen!2sin!4v1766780443605!5m2!1sen!2sin" />
                   </div>
                </div>
             </div>
