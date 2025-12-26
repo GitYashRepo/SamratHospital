@@ -84,8 +84,8 @@ const OwnerPage = () => {
                      <div>
                         <h2 className="text-4xl font-bold text-[#1E3A5F] mb-4">Mr. Vikram Singh</h2>
                         <p className="text-lg text-gray-600 leading-relaxed">
-                           An accomplished physician and healthcare entrepreneur with over 40 years of experience in medical
-                           practice and hospital management. Mr. Vikram founded Samrat Hospital Medical Center in 1985 with a vision to
+                           An accomplished physician and healthcare entrepreneur with over 5 years of experience in medical
+                           practice and hospital management. Mr. Vikram founded Samrat Hospital Medical Center in 2020 with a vision to
                            revolutionize healthcare delivery in our community.
                         </p>
                      </div>

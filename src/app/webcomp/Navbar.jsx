@@ -13,9 +13,9 @@ const Navbar = () => {
    const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
 
    return (
-      <header className="w-full sm:pb-0 sticky top-0 sm:static z-[99999]">
+      <header className="w-full sm:pb-0 sticky top-0 lg:static z-[99999]">
          {/* Top Bar - Contact Info */}
-         <div style={{ background: "linear-gradient(to right, #1E3A5F, #2B4A6F)" }} className="text-white hidden md:block">
+         <div style={{ background: "linear-gradient(to right, #1E3A5F, #2B4A6F)" }} className="text-white hidden lg:block">
             <div className="mx-auto px-16">
                <div className="flex items-center justify-between h-9 text-xs">
                   <div className="flex items-center gap-6">
@@ -50,7 +50,7 @@ const Navbar = () => {
             style={{ background: "rgba(255, 255, 255, 0.95)", backdropFilter: "blur(2px)" }}
             className="border-b border-gray-100 relative overflow-visible z-[99999999]"
          >
-            <div className="mx-auto px-12">
+            <div className="mx-auto px-4 md:px-12">
                <div className="flex items-center justify-between h-16">
                   {/* Logo */}
                   <a href="/" className="flex items-center gap-3">
