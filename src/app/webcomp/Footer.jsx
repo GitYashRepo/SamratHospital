@@ -149,7 +149,7 @@ const Footer = () => {
                   <div className="flex items-center gap-1 text-sm text-gray-400">
                      <span>Made with</span>
                      <Heart className="w-3 h-3 text-[#D62828] fill-current" />
-                     <span>by <span className="font-bold">WebTechWare</span></span>
+                     <span>by <a href="https://www.webtechware.in"><span className="font-bold">WebTechWare</span></a></span>
                   </div>
                   <div className="flex items-center gap-6">
                      <a href="#" className="text-xs text-gray-400 hover:text-[#7DD3C0] transition-colors">Privacy Policy</a>
