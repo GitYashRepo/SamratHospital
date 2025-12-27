@@ -7,7 +7,7 @@ import Link from "next/link"
 
 const Navbar = () => {
    const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false)
-   const [SpecialitiesDropdownOpen, setSpecialitiesDropdownOpen] = useState(false)
+   const [specialitiesDropdownOpen, setSpecialitiesDropdownOpen] = useState(false)
    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
    const [mobileAboutOpen, setMobileAboutOpen] = useState(false)
    const [mobileSpecialitiesOpen, setMobileSpecialitiesOpen] = useState(false)
@@ -128,7 +128,7 @@ const Navbar = () => {
                         >
                            Specialities
                            <ChevronDown
-                              className={`w-3.5 h-3.5 transition-transform duration-300 ${SpecialitiesDropdownOpen ? "rotate-180" : ""}`}
+                              className={`w-3.5 h-3.5 transition-transform duration-300 ${specialitiesDropdownOpen ? "rotate-180" : ""}`}
                            />
                         </button>
 
@@ -137,7 +137,7 @@ const Navbar = () => {
                            onMouseEnter={() => setSpecialitiesDropdownOpen(true)}
                            onMouseLeave={() => setSpecialitiesDropdownOpen(false)}
                            className={`absolute left-0 mt-0 w-56 z-50
-                               bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden transform transition-all duration-200 origin-top ${SpecialitiesDropdownOpen ? "opacity-100 scale-y-100 visible" : "opacity-0 scale-y-95 invisible"
+                               bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden transform transition-all duration-200 origin-top ${specialitiesDropdownOpen ? "opacity-100 scale-y-100 visible" : "opacity-0 scale-y-95 invisible"
                               }`}
                         >
                            <a
