@@ -68,7 +68,7 @@ const AboutPage = () => {
                      <h2 className="text-4xl font-bold text-[#1E3A5F] mb-6">Our Story</h2>
                      <div className="space-y-4 text-gray-600 leading-relaxed">
                         <p>
-                           Samrat Hospital Medical Center was founded in 1985 with a singular vision: to create a healthcare institution
+                           Samrat Hospital Medical Center was founded in 2020 with a singular vision: to create a healthcare institution
                            that puts patients first. What started as a small community clinic has grown into a state-of-the-art
                            medical facility serving over 50,000 patients annually.
                         </p>

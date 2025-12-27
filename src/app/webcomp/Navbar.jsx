@@ -7,10 +7,10 @@ import Link from "next/link"
 
 const Navbar = () => {
    const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false)
-   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false)
+   const [SpecialitiesDropdownOpen, setSpecialitiesDropdownOpen] = useState(false)
    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
    const [mobileAboutOpen, setMobileAboutOpen] = useState(false)
-   const [mobileServicesOpen, setMobileServicesOpen] = useState(false)
+   const [mobileSpecialitiesOpen, setMobileSpecialitiesOpen] = useState(false)
 
    return (
       <header className="w-full sm:pb-0 sticky top-0 lg:static z-[99999]">
@@ -122,22 +122,22 @@ const Navbar = () => {
 
                      <div className="relative group">
                         <button
-                           onMouseEnter={() => setServicesDropdownOpen(true)}
-                           onMouseLeave={() => setServicesDropdownOpen(false)}
+                           onMouseEnter={() => setSpecialitiesDropdownOpen(true)}
+                           onMouseLeave={() => setSpecialitiesDropdownOpen(false)}
                            className="flex items-center gap-1 text-sm font-medium text-[#1E3A5F] hover:text-[#00A896] transition-colors"
                         >
-                           Services
+                           Specialities
                            <ChevronDown
-                              className={`w-3.5 h-3.5 transition-transform duration-300 ${servicesDropdownOpen ? "rotate-180" : ""}`}
+                              className={`w-3.5 h-3.5 transition-transform duration-300 ${SpecialitiesDropdownOpen ? "rotate-180" : ""}`}
                            />
                         </button>
 
                         {/* Dropdown Menu */}
                         <div
-                           onMouseEnter={() => setServicesDropdownOpen(true)}
-                           onMouseLeave={() => setServicesDropdownOpen(false)}
+                           onMouseEnter={() => setSpecialitiesDropdownOpen(true)}
+                           onMouseLeave={() => setSpecialitiesDropdownOpen(false)}
                            className={`absolute left-0 mt-0 w-56 z-50
-                               bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden transform transition-all duration-200 origin-top ${servicesDropdownOpen ? "opacity-100 scale-y-100 visible" : "opacity-0 scale-y-95 invisible"
+                               bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden transform transition-all duration-200 origin-top ${SpecialitiesDropdownOpen ? "opacity-100 scale-y-100 visible" : "opacity-0 scale-y-95 invisible"
                               }`}
                         >
                            <a
@@ -150,19 +150,19 @@ const Navbar = () => {
                               href="#"
                               className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
                            >
-                              Inpatient Services
+                              Inpatient Specialities
                            </a>
                            <a
                               href="#"
                               className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
                            >
-                              Outpatient Services
+                              Outpatient Specialities
                            </a>
                            <a
                               href="#"
                               className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
                            >
-                              Diagnostic Services
+                              Diagnostic Specialities
                            </a>
                            <a
                               href="#"
@@ -174,13 +174,13 @@ const Navbar = () => {
                               href="#"
                               className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
                            >
-                              Rehabilitation Services
+                              Rehabilitation Specialities
                            </a>
                            <a
                               href="#"
                               className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors"
                            >
-                              Pharmacy Services
+                              Pharmacy Specialities
                            </a>
                         </div>
                      </div>
@@ -251,14 +251,14 @@ const Navbar = () => {
                               About Us
                            </a>
                            <a
-                              href="/about-owner"
+                              href="/about/owner"
                               onClick={() => setMobileMenuOpen(false)}
                               className="block py-2.5 px-4 text-sm text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-l-2 border-transparent hover:border-[#00A896]"
                            >
                               About Owner
                            </a>
                            <a
-                              href="/about-team"
+                              href="/about/team"
                               onClick={() => setMobileMenuOpen(false)}
                               className="block py-2.5 px-4 text-sm text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-l-2 border-transparent hover:border-[#00A896]"
                            >
@@ -268,18 +268,18 @@ const Navbar = () => {
                      )}
                   </div>
 
-                  {/* Mobile Services Dropdown */}
+                  {/* Mobile Specialities Dropdown */}
                   <div className="border-b border-gray-100">
                      <button
-                        onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                        onClick={() => setMobileSpecialitiesOpen(!mobileSpecialitiesOpen)}
                         className="w-full py-3 flex items-center justify-between text-sm font-medium text-[#1E3A5F] hover:text-[#00A896] transition-colors"
                      >
-                        Services
+                        Specialities
                         <ChevronDown
-                           className={`w-4 h-4 transition-transform duration-300 ${mobileServicesOpen ? "rotate-180" : ""}`}
+                           className={`w-4 h-4 transition-transform duration-300 ${mobileSpecialitiesOpen ? "rotate-180" : ""}`}
                         />
                      </button>
-                     {mobileServicesOpen && (
+                     {mobileSpecialitiesOpen && (
                         <div className="bg-gray-50">
                            <a
                               href="#"
@@ -293,21 +293,21 @@ const Navbar = () => {
                               onClick={() => setMobileMenuOpen(false)}
                               className="block py-2.5 px-4 text-sm text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-l-2 border-transparent hover:border-[#00A896]"
                            >
-                              Inpatient Services
+                              Inpatient Specialities
                            </a>
                            <a
                               href="#"
                               onClick={() => setMobileMenuOpen(false)}
                               className="block py-2.5 px-4 text-sm text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-l-2 border-transparent hover:border-[#00A896]"
                            >
-                              Outpatient Services
+                              Outpatient Specialities
                            </a>
                            <a
                               href="#"
                               onClick={() => setMobileMenuOpen(false)}
                               className="block py-2.5 px-4 text-sm text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-l-2 border-transparent hover:border-[#00A896]"
                            >
-                              Diagnostic Services
+                              Diagnostic Specialities
                            </a>
                            <a
                               href="#"
@@ -321,14 +321,14 @@ const Navbar = () => {
                               onClick={() => setMobileMenuOpen(false)}
                               className="block py-2.5 px-4 text-sm text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-l-2 border-transparent hover:border-[#00A896]"
                            >
-                              Rehabilitation Services
+                              Rehabilitation Specialities
                            </a>
                            <a
                               href="#"
                               onClick={() => setMobileMenuOpen(false)}
                               className="block py-2.5 px-4 text-sm text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-l-2 border-transparent hover:border-[#00A896]"
                            >
-                              Pharmacy Services
+                              Pharmacy Specialities
                            </a>
                         </div>
                      )}

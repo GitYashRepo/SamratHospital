@@ -48,7 +48,7 @@ const Footer = () => {
                         </div>
                      </div>
                      <p className="text-sm text-gray-300 leading-relaxed mb-6">
-                        Providing compassionate healthcare with excellence since 1985. Our commitment is to your well-being and recovery.
+                        Providing compassionate healthcare with excellence since 2020. Our commitment is to your well-being and recovery.
                      </p>
                      <div className="flex items-center gap-2">
                         <a href="#" className="w-10 h-10 bg-white/10 hover:bg-[#00A896] rounded-lg flex items-center justify-center transition-colors">
@@ -144,7 +144,7 @@ const Footer = () => {
             <div className="mx-auto px-6">
                <div className="flex flex-col md:flex-row items-center justify-between gap-4">
                   <p className="text-xs text-gray-400">
-                     © 2024 Samrat Hospital Medical Center. All rights reserved.
+                     © 2026 Samrat Hospital Medical Center. All rights reserved.
                   </p>
                   <div className="flex items-center gap-1 text-sm text-gray-400">
                      <span>Made with</span>
