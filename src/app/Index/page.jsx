@@ -44,7 +44,7 @@ const Index = () => {
                   <div className="space-y-8">
                      <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#00A896]/10 to-[#028090]/10 text-[#028090] px-5 py-2.5 rounded-full text-sm font-semibold border border-[#00A896]/20">
                         <Sparkles className="w-4 h-4" />
-                        <span>Trusted Healthcare Since 1985</span>
+                        <span>Trusted Healthcare Since 2020</span>
                      </div>
 
                      <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1E3A5F] leading-tight">
