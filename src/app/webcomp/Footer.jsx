@@ -144,6 +144,7 @@ const Footer = () => {
                   <p className="text-xs text-gray-400">
                      © 2026 Samrat Hospital Medical Center. All rights reserved.
                   </p>
+
                   <a href="http://www.webtechware.in" target="_blank">
                      <div className="flex items-center gap-1 text-sm text-gray-400">
                         <span>Made with</span>
@@ -151,6 +152,7 @@ const Footer = () => {
                         <span>by <span className="font-bold">WebTechWare</span></span>
                      </div>
                   </a>
+
                   <div className="flex items-center gap-6">
                      <a href="#" className="text-xs text-gray-400 hover:text-[#7DD3C0] transition-colors">Privacy Policy</a>
                      <a href="#" className="text-xs text-gray-400 hover:text-[#7DD3C0] transition-colors">Terms of Service</a>
