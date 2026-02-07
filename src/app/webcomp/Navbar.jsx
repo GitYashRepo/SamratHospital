@@ -50,161 +50,26 @@ const Navbar = () => {
             style={{ background: "rgba(255, 255, 255, 0.95)", backdropFilter: "blur(2px)" }}
             className="border-b border-gray-100 relative overflow-visible z-[99999999]"
          >
-            <div className="mx-auto px-4 md:px-12">
+            <div className="mx-auto px-4 md:px-16">
                <div className="flex items-center justify-between h-16">
-                  {/* Logo */}
                   <a href="/" className="flex items-center gap-3">
                      <div className="relative">
-                        <div
-                           style={{ background: "linear-gradient(to bottom right, #00A896, #028090)", boxShadow: "0 0 20px rgba(0, 168, 150, 0.3)" }}
-                           className="w-11 h-11 rounded-xl flex items-center justify-center shadow-lg"
-                        >
-                           <span className="text-white font-bold text-xl">H</span>
-                        </div>
-                        <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 bg-[#F77F00] rounded-full flex items-center justify-center">
-                           <span className="text-white text-[8px] font-bold">+</span>
-                        </div>
+                        <img src="/logo.png" alt="Samrat Hospital Logo" className="w-10 h-10" />
                      </div>
-                     <div>
-                        <h1 className="text-xl font-bold text-[#1E3A5F] tracking-tight">Samrat Hospital</h1>
-                        <p className="text-[9px] text-[#00A896] uppercase tracking-[0.2em] font-semibold">PAIN & MULTI-SPECIALITY</p>
+                     <div className="flex flex-col">
+                        <h1 className="text-lg font-bold text-[#1E3A5F] tracking-tight">SAMRAT HOSPITAL</h1>
+                        <p className="flex justify-between text-[9px] text-[#00A896] uppercase font-semibold"><span>P</span><span>A</span><span>I</span><span>N</span><span>  </span><span>&</span><span>  </span><span>M</span><span>U</span><span>L</span><span>T</span><span>I</span><span>-</span><span>S</span><span>P</span><span>E</span><span>C</span><span>I</span><span>A</span><span>L</span><span>I</span><span>T</span><span>Y</span></p>
                      </div>
                   </a>
 
-                  {/* Navigation Links */}
-                  <nav className="hidden lg:flex items-center gap-8">
-                     <a
-                        href="/"
-                        className="text-sm font-medium text-[#1E3A5F] hover:text-[#00A896] transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-0.5 after:bg-[#00A896] after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:origin-left"
-                     >
-                        Home
-                     </a>
 
-                     <div className="relative group">
-                        <button
-                           onMouseEnter={() => setAboutDropdownOpen(true)}
-                           onMouseLeave={() => setAboutDropdownOpen(false)}
-                           className="flex items-center gap-1 text-sm font-medium text-[#1E3A5F] hover:text-[#00A896] transition-colors"
-                        >
-                           About
-                           <ChevronDown
-                              className={`w-3.5 h-3.5 transition-transform duration-300 ${aboutDropdownOpen ? "rotate-180" : ""}`}
-                           />
-                        </button>
-
-                        {/* Dropdown Menu */}
-                        <div
-                           onMouseEnter={() => setAboutDropdownOpen(true)}
-                           onMouseLeave={() => setAboutDropdownOpen(false)}
-                           className={`absolute left-0 mt-0 w-48 bg-white rounded-lg shadow-xl z-[99999] border border-gray-100 transform transition-all duration-200 origin-top ${aboutDropdownOpen ? "opacity-100 scale-y-100 visible" : "opacity-0 scale-y-95 invisible"
-                              }`}
-                        >
-                           <a
-                              href="/about"
-                              className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
-                           >
-                              About Us
-                           </a>
-                           <a
-                              href="/about/owner"
-                              className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
-                           >
-                              About Owner
-                           </a>
-                           <a
-                              href="/about/team"
-                              className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors"
-                           >
-                              About Team
-                           </a>
-                        </div>
-                     </div>
-
-                     <div className="relative group">
-                        <button
-                           onMouseEnter={() => setSpecialitiesDropdownOpen(true)}
-                           onMouseLeave={() => setSpecialitiesDropdownOpen(false)}
-                           className="flex items-center gap-1 text-sm font-medium text-[#1E3A5F] hover:text-[#00A896] transition-colors"
-                        >
-                           Specialities
-                           <ChevronDown
-                              className={`w-3.5 h-3.5 transition-transform duration-300 ${specialitiesDropdownOpen ? "rotate-180" : ""}`}
-                           />
-                        </button>
-
-                        {/* Dropdown Menu */}
-                        <div
-                           onMouseEnter={() => setSpecialitiesDropdownOpen(true)}
-                           onMouseLeave={() => setSpecialitiesDropdownOpen(false)}
-                           className={`absolute left-0 mt-0 w-56 z-50
-                               bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden transform transition-all duration-200 origin-top ${specialitiesDropdownOpen ? "opacity-100 scale-y-100 visible" : "opacity-0 scale-y-95 invisible"
-                              }`}
-                        >
-                           <a
-                              href="#"
-                              className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
-                           >
-                              Emergency Care
-                           </a>
-                           <a
-                              href="#"
-                              className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
-                           >
-                              Inpatient Specialities
-                           </a>
-                           <a
-                              href="#"
-                              className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
-                           >
-                              Outpatient Specialities
-                           </a>
-                           <a
-                              href="#"
-                              className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
-                           >
-                              Diagnostic Specialities
-                           </a>
-                           <a
-                              href="#"
-                              className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
-                           >
-                              Surgery & ICU
-                           </a>
-                           <a
-                              href="#"
-                              className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
-                           >
-                              Rehabilitation Specialities
-                           </a>
-                           <a
-                              href="#"
-                              className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors"
-                           >
-                              Pharmacy Specialities
-                           </a>
-                        </div>
-                     </div>
-
-                     <a href="/doctors" className="text-sm font-medium text-[#1E3A5F] hover:text-[#00A896] transition-colors">
-                        Doctors
-                     </a>
-                     <a
-                        href="/departments"
-                        className="text-sm font-medium text-[#1E3A5F] hover:text-[#00A896] transition-colors"
-                     >
-                        Departments
-                     </a>
-                     <a href="/contact" className="text-sm font-medium text-[#1E3A5F] hover:text-[#00A896] transition-colors">
-                        Contact
-                     </a>
-                  </nav>
 
                   {/* Right Actions */}
                   <div className="flex items-center gap-3">
                      <Link href="/book-appointment">
                         <Button
                            style={{ background: "linear-gradient(to right, #F77F00, #FCBF49)", boxShadow: "0 0 20px rgba(247, 127, 0, 0.3)" }}
-                           className="hidden sm:flex text-white text-sm h-10 px-5 rounded-full font-medium shadow-lg transition-all hover:shadow-xl"
+                           className="hidden sm:flex text-white text-sm h-10 px-5 rounded-full font-medium shadow-lg transition-all hover:shadow-xl hover:cursor-pointer"
                         >
                            <Calendar className="w-4 h-4 mr-2" />
                            Book Appointment
@@ -379,43 +244,146 @@ const Navbar = () => {
             className="border-b border-gray-200 hidden md:block"
          >
             <div className="mx-auto px-6">
-               <div className="flex items-center justify-center h-10 gap-6 overflow-x-auto">
+
+               {/* Navigation Links */}
+               <nav className="flex items-center justify-center h-10 gap-6">
                   <a
-                     href="#"
-                     className="text-xs text-[#D62828] hover:text-[#B81D1D] transition-colors font-semibold flex items-center gap-1 whitespace-nowrap"
+                     href="/"
+                     className="text-sm font-medium text-[#1E3A5F] hover:text-[#00A896] transition-colors"
                   >
-                     <span className="w-1.5 h-1.5 bg-[#D62828] rounded-full animate-pulse" />
-                     Emergency Care
+                     Home
                   </a>
+
                   <span className="w-px h-4 bg-gray-300" />
-                  <a
-                     href="#"
-                     className="text-xs text-[#1E3A5F] hover:text-[#00A896] transition-colors font-medium whitespace-nowrap"
-                  >
-                     Find a Doctor
-                  </a>
+
+                  <div className="relative group">
+                     <button
+                        onMouseEnter={() => setAboutDropdownOpen(true)}
+                        onMouseLeave={() => setAboutDropdownOpen(false)}
+                        className="flex items-center gap-1 text-sm font-medium text-[#1E3A5F] hover:text-[#00A896] transition-colors"
+                     >
+                        About
+                        <ChevronDown
+                           className={`w-3.5 h-3.5 transition-transform duration-300 ${aboutDropdownOpen ? "rotate-180" : ""}`}
+                        />
+                     </button>
+
+                     {/* Dropdown Menu */}
+                     <div
+                        onMouseEnter={() => setAboutDropdownOpen(true)}
+                        onMouseLeave={() => setAboutDropdownOpen(false)}
+                        className={`absolute left-0 mt-0 w-48 bg-white rounded-lg shadow-xl z-[99999] border border-gray-100 transform transition-all duration-200 origin-top ${aboutDropdownOpen ? "opacity-100 scale-y-100 visible" : "opacity-0 scale-y-95 invisible"
+                           }`}
+                     >
+                        <a
+                           href="/about"
+                           className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
+                        >
+                           About Us
+                        </a>
+                        <a
+                           href="/about/owner"
+                           className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
+                        >
+                           About Owner
+                        </a>
+                        <a
+                           href="/about/team"
+                           className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors"
+                        >
+                           About Team
+                        </a>
+                     </div>
+                  </div>
+
                   <span className="w-px h-4 bg-gray-300" />
-                  <a
-                     href="#"
-                     className="text-xs text-[#1E3A5F] hover:text-[#00A896] transition-colors font-medium whitespace-nowrap"
-                  >
-                     Patient Portal
+
+                  <div className="relative group">
+                     <button
+                        onMouseEnter={() => setSpecialitiesDropdownOpen(true)}
+                        onMouseLeave={() => setSpecialitiesDropdownOpen(false)}
+                        className="flex items-center gap-1 text-sm font-medium text-[#1E3A5F] hover:text-[#00A896] transition-colors"
+                     >
+                        Specialities
+                        <ChevronDown
+                           className={`w-3.5 h-3.5 transition-transform duration-300 ${specialitiesDropdownOpen ? "rotate-180" : ""}`}
+                        />
+                     </button>
+
+                     {/* Dropdown Menu */}
+                     <div
+                        onMouseEnter={() => setSpecialitiesDropdownOpen(true)}
+                        onMouseLeave={() => setSpecialitiesDropdownOpen(false)}
+                        className={`absolute left-0 mt-0 w-56 z-50
+                               bg-white rounded-lg shadow-xl border border-gray-100 overflow-hidden transform transition-all duration-200 origin-top ${specialitiesDropdownOpen ? "opacity-100 scale-y-100 visible" : "opacity-0 scale-y-95 invisible"
+                           }`}
+                     >
+                        <a
+                           href="#"
+                           className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
+                        >
+                           Emergency Care
+                        </a>
+                        <a
+                           href="#"
+                           className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
+                        >
+                           Inpatient Specialities
+                        </a>
+                        <a
+                           href="#"
+                           className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
+                        >
+                           Outpatient Specialities
+                        </a>
+                        <a
+                           href="#"
+                           className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
+                        >
+                           Diagnostic Specialities
+                        </a>
+                        <a
+                           href="#"
+                           className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
+                        >
+                           Surgery & ICU
+                        </a>
+                        <a
+                           href="#"
+                           className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
+                        >
+                           Rehabilitation Specialities
+                        </a>
+                        <a
+                           href="#"
+                           className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors"
+                        >
+                           Pharmacy Specialities
+                        </a>
+                     </div>
+                  </div>
+
+                  <span className="w-px h-4 bg-gray-300" />
+
+                  <a href="/doctors" className="text-sm font-medium text-[#1E3A5F] hover:text-[#00A896] transition-colors">
+                     Doctors
                   </a>
-                  <span className="w-px h-4 bg-gray-300 hidden sm:block" />
+
+                  <span className="w-px h-4 bg-gray-300" />
+
                   <a
-                     href="#"
-                     className="text-xs text-[#1E3A5F] hover:text-[#00A896] transition-colors font-medium hidden sm:block whitespace-nowrap"
+                     href="/departments"
+                     className="text-sm font-medium text-[#1E3A5F] hover:text-[#00A896] transition-colors"
                   >
-                     Pay Bill Online
+                     Departments
                   </a>
-                  <span className="w-px h-4 bg-gray-300 hidden sm:block" />
-                  <a
-                     href="#"
-                     className="text-xs text-[#1E3A5F] hover:text-[#00A896] transition-colors font-medium hidden sm:block whitespace-nowrap"
-                  >
-                     Request Records
+
+                  <span className="w-px h-4 bg-gray-300" />
+
+                  <a href="/contact" className="text-sm font-medium text-[#1E3A5F] hover:text-[#00A896] transition-colors">
+                     Contact
                   </a>
-               </div>
+               </nav>
             </div>
          </div>
 

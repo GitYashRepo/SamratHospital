@@ -39,12 +39,10 @@ const Footer = () => {
                   {/* About */}
                   <div>
                      <div className="flex items-center gap-3 mb-6">
-                        <div className="w-12 h-12 bg-gradient-to-br from-[#00A896] to-[#028090] rounded-xl flex items-center justify-center shadow-lg">
-                           <span className="text-white font-bold text-xl">H</span>
-                        </div>
-                        <div>
+                        <img src="/logo.png" alt="Samrat Hospital Logo" className="w-12 h-12 rounded-full" />
+                        <div className="flex flex-col">
                            <h3 className="text-lg font-bold text-white">Samrat Hospital</h3>
-                           <p className="text-[9px] text-[#7DD3C0] uppercase font-semibold">Pain & Multi-speciality</p>
+                           <p className="flex justify-between text-[9px] text-[#00A896] uppercase font-semibold"><span>P</span><span>A</span><span>I</span><span>N</span><span>  </span><span>&</span><span>  </span><span>M</span><span>U</span><span>L</span><span>T</span><span>I</span><span>-</span><span>S</span><span>P</span><span>E</span><span>C</span><span>I</span><span>A</span><span>L</span><span>I</span><span>T</span><span>Y</span></p>
                         </div>
                      </div>
                      <p className="text-sm text-gray-300 leading-relaxed mb-6">
@@ -146,11 +144,13 @@ const Footer = () => {
                   <p className="text-xs text-gray-400">
                      © 2026 Samrat Hospital Medical Center. All rights reserved.
                   </p>
-                  <div className="flex items-center gap-1 text-sm text-gray-400">
-                     <span>Made with</span>
-                     <Heart className="w-3 h-3 text-[#D62828] fill-current" />
-                     <span>by <span className="font-bold">WebTechWare</span></span>
-                  </div>
+                  <a href="http://www.webtechware.in" target="_blank">
+                     <div className="flex items-center gap-1 text-sm text-gray-400">
+                        <span>Made with</span>
+                        <Heart className="w-3 h-3 text-[#D62828] fill-current" />
+                        <span>by <span className="font-bold">WebTechWare</span></span>
+                     </div>
+                  </a>
                   <div className="flex items-center gap-6">
                      <a href="#" className="text-xs text-gray-400 hover:text-[#7DD3C0] transition-colors">Privacy Policy</a>
                      <a href="#" className="text-xs text-gray-400 hover:text-[#7DD3C0] transition-colors">Terms of Service</a>

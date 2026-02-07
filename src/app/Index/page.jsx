@@ -103,13 +103,14 @@ const Index = () => {
                      <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-[#00A896] to-[#028090] rounded-3xl -rotate-12 opacity-80" />
 
                      <img
-                        src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&h=900&fit=crop"
+                        // src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&h=900&fit=crop"
+                        src="/hospitalimg.webp"
                         alt="Doctor with patient"
                         className="relative w-full h-[580px] object-cover rounded-[2rem] shadow-2xl"
                      />
 
                      {/* Floating Card */}
-                     <div className="absolute -left-8 bottom-24 bg-white p-5 rounded-2xl shadow-2xl border border-gray-100">
+                     <div className="absolute -left-8 bottom-10 bg-white px-5 py-2 rounded-2xl shadow-2xl border border-gray-100">
                         <div className="flex items-center gap-4">
                            <div className="w-14 h-14 bg-gradient-to-br from-[#D62828] to-[#F77F00] rounded-2xl flex items-center justify-center shadow-lg">
                               <Phone className="w-6 h-6 text-white" />
@@ -122,13 +123,13 @@ const Index = () => {
                      </div>
 
                      {/* Stats Card */}
-                     <div className="absolute -right-4 top-20 bg-white p-4 rounded-2xl shadow-2xl border border-gray-100">
+                     <div className="absolute -right-4 top-10 bg-white px-4 py-2 rounded-2xl shadow-2xl border border-gray-100">
                         <div className="flex items-center gap-3">
                            <div className="w-10 h-10 bg-gradient-to-br from-[#00A896] to-[#028090] rounded-xl flex items-center justify-center">
                               <Users className="w-5 h-5 text-white" />
                            </div>
                            <div>
-                              <p className="text-2xl font-bold text-[#1E3A5F]">20+</p>
+                              <p className="text-2xl font-bold text-[#1E3A5F]">10+</p>
                               <p className="text-xs text-gray-500">Expert Doctors</p>
                            </div>
                         </div>
