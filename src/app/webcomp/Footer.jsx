@@ -1,31 +1,9 @@
-import { Phone, Mail, MapPin, Clock, Facebook, Twitter, Instagram, Linkedin, Heart, ArrowRight } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Facebook, Twitter, Instagram, Linkedin, LogIn, ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 const Footer = () => {
    return (
       <footer className="relative overflow-hidden">
-         {/* Newsletter Section */}
-         <div className="bg-gradient-to-r from-[#00A896] to-[#028090] py-12">
-            <div className="mx-auto px-12">
-               <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-                  <div>
-                     <h3 className="text-xl font-bold text-white mb-1">Subscribe to Our Newsletter</h3>
-                     <p className="text-white/80 text-sm">Get health tips and updates delivered to your whatsapp</p>
-                  </div>
-                  <div className="flex items-center gap-3 w-full md:w-auto">
-                     <input
-                        type="text"
-                        placeholder="Enter your phone number"
-                        className="flex-1 md:w-72 h-12 px-5 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white placeholder:text-white/60 focus:outline-none focus:ring-2 focus:ring-white/50"
-                     />
-                     <button className="h-12 px-6 bg-[#F77F00] hover:bg-[#E76F00] text-white font-medium rounded-full transition-colors flex items-center gap-2 shadow-lg">
-                        Subscribe
-                        <ArrowRight className="w-4 h-4" />
-                     </button>
-                  </div>
-               </div>
-            </div>
-         </div>
-
          {/* Main Footer */}
          <div className="bg-[#1E3A5F] text-white py-16 relative">
             <div className="absolute inset-0 opacity-5">
@@ -71,12 +49,21 @@ const Footer = () => {
                         Quick Links
                      </h4>
                      <ul className="space-y-3">
-                        <li><a href="#" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />About Us</a></li>
-                        <li><a href="#" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />Our Services</a></li>
-                        <li><a href="#" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />Meet Our Doctors</a></li>
-                        <li><a href="#" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />Departments</a></li>
-                        <li><a href="#" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />Patient Testimonials</a></li>
-                        {/* <li><a href="#" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />Careers</a></li> */}
+                        <li><a href="/about" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />About Us</a></li>
+                        <li><a href="/services" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />Our Services</a></li>
+                        <li><a href="/doctors" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />Meet Our Doctors</a></li>
+                        <li><a href="/departments" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />Departments</a></li>
+                        <li><a href="/testimonials" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />Patient Testimonials</a></li>
+                        {/* Staff Login — separator */}
+                        <li className="pt-3 mt-1 border-t border-white/10">
+                           <Link
+                              href="/login"
+                              className="text-sm font-bold text-[#00A896] hover:text-[#7DD3C0] transition-colors flex items-center gap-2 group uppercase tracking-widest"
+                           >
+                              <LogIn className="w-4 h-4" />
+                              Staff Login
+                           </Link>
+                        </li>
                      </ul>
                   </div>
 
@@ -92,7 +79,7 @@ const Footer = () => {
                         <li><a href="#" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />Orthopedics</a></li>
                         <li><a href="#" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />Pediatrics</a></li>
                         <li><a href="#" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />Neurology</a></li>
-                        <li><a href="#" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />Women's Health</a></li>
+                        <li><a href="#" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors flex items-center gap-2 group"><ArrowRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />Women&apos;s Health</a></li>
                      </ul>
                   </div>
 
@@ -113,13 +100,13 @@ const Footer = () => {
                            <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0">
                               <Phone className="w-4 h-4 text-[#00A896]" />
                            </div>
-                           <a href="tel:+1234567890" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors">+1 (234) 567-890</a>
+                           <a href="tel:+919053744402" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors">+91 9053744402</a>
                         </li>
                         <li className="flex items-center gap-3">
                            <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0">
                               <Mail className="w-4 h-4 text-[#FCBF49]" />
                            </div>
-                           <a href="mailto:info@Samrat Hospital.com" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors">info@samrathospital.com</a>
+                           <a href="mailto:samrathospitalrewari@gmail.com" className="text-sm text-gray-300 hover:text-[#7DD3C0] transition-colors">samrathospitalrewari@gmail.com</a>
                         </li>
                         <li className="flex items-start gap-3">
                            <div className="w-8 h-8 bg-white/10 rounded-lg flex items-center justify-center shrink-0 mt-0.5">
@@ -145,18 +132,15 @@ const Footer = () => {
                      © 2026 Samrat Hospital Medical Center. All rights reserved.
                   </p>
 
-                  <a href="http://www.webtechware.in" target="_blank">
+                  <a href="http://www.webtechware.in" target="_blank" rel="noopener noreferrer">
                      <div className="flex items-center gap-1 text-sm text-gray-400">
-                        <span>Made with</span>
-                        <Heart className="w-3 h-3 text-[#D62828] fill-current" />
-                        <span>by <span className="font-bold">WebTechWare</span></span>
+                        <span>Developed by <span className="font-bold">WebTechWare</span></span>
                      </div>
                   </a>
 
                   <div className="flex items-center gap-6">
-                     <a href="#" className="text-xs text-gray-400 hover:text-[#7DD3C0] transition-colors">Privacy Policy</a>
-                     <a href="#" className="text-xs text-gray-400 hover:text-[#7DD3C0] transition-colors">Terms of Service</a>
-                     <a href="#" className="text-xs text-gray-400 hover:text-[#7DD3C0] transition-colors">HIPAA Compliance</a>
+                     <a href="/privacy-policy" className="text-xs text-gray-400 hover:text-[#7DD3C0] transition-colors">Privacy Policy</a>
+                     <a href="/terms-of-service" className="text-xs text-gray-400 hover:text-[#7DD3C0] transition-colors">Terms of Service</a>
                   </div>
                </div>
             </div>

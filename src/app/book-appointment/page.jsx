@@ -8,13 +8,7 @@ import {
    Phone,
    Mail,
    MessageSquare,
-   Heart,
-   Brain,
-   Bone,
-   Baby,
-   Activity,
-   Stethoscope,
-   ChevronRight,
+   Loader2,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -23,28 +17,13 @@ export default function BookAppointment() {
       fullName: "",
       email: "",
       phone: "",
-      selectedSpecialty: "",
       appointmentDate: "",
       appointmentTime: "",
       notes: "",
    })
 
    const [submitted, setSubmitted] = useState(false)
-
-   const specialties = [
-      { id: "cardiology", name: "Cardiology", icon: Heart, color: "#D62828", description: "Heart & Cardiovascular Care" },
-      { id: "neurology", name: "Neurology", icon: Brain, color: "#7B2D8E", description: "Brain & Nervous System" },
-      { id: "orthopedics", name: "Orthopedics", icon: Bone, color: "#00A896", description: "Joints & Bones" },
-      { id: "pediatrics", name: "Pediatrics", icon: Baby, color: "#F77F00", description: "Child Healthcare" },
-      {
-         id: "emergency",
-         name: "Emergency Care",
-         icon: Activity,
-         color: "#D62828",
-         description: "24/7 Emergency Services",
-      },
-      { id: "general", name: "General Medicine", icon: Stethoscope, color: "#1E3A5F", description: "Primary Care" },
-   ]
+   const [loading, setLoading] = useState(false)
 
    const handleInputChange = (e) => {
       const { name, value } = e.target
@@ -54,34 +33,39 @@ export default function BookAppointment() {
       }))
    }
 
-   const handleSpecialtyChange = (specialtyId) => {
-      setFormData((prev) => ({
-         ...prev,
-         selectedSpecialty: specialtyId,
-      }))
-   }
-
-   const handleSubmit = (e) => {
+   const handleSubmit = async (e) => {
       e.preventDefault()
-      // Here you would typically send the data to a server
-      console.log("Appointment Data:", formData)
-      setSubmitted(true)
-      setTimeout(() => {
-         setFormData({
-            fullName: "",
-            email: "",
-            phone: "",
-            selectedSpecialty: "",
-            appointmentDate: "",
-            appointmentTime: "",
-            notes: "",
+      setLoading(true)
+      
+      try {
+         const res = await fetch("/api/appointments", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
          })
-         setSubmitted(false)
-      }, 3000)
-   }
 
-   const getSelectedSpecialty = () => {
-      return specialties.find((s) => s.id === formData.selectedSpecialty)
+         if (res.ok) {
+            setSubmitted(true)
+            setTimeout(() => {
+               setFormData({
+                  fullName: "",
+                  email: "",
+                  phone: "",
+                  appointmentDate: "",
+                  appointmentTime: "",
+                  notes: "",
+               })
+               setSubmitted(false)
+            }, 5000)
+         } else {
+            alert("Something went wrong. Please try again.")
+         }
+      } catch (err) {
+         console.error(err)
+         alert("An error occurred. Please try again.")
+      } finally {
+         setLoading(false)
+      }
    }
 
    return (
@@ -106,7 +90,7 @@ export default function BookAppointment() {
                <div className="max-w-3xl mx-auto text-center space-y-4">
                   <h1 className="text-4xl md:text-5xl font-bold text-[#1E3A5F]">Book Your Appointment</h1>
                   <p className="text-lg text-gray-600">
-                     Schedule a consultation with our expert doctors. Choose your preferred specialty and time slot.
+                     Schedule a consultation with our expert doctors. Fill in your details and preferred time slot.
                   </p>
                </div>
             </div>
@@ -115,54 +99,14 @@ export default function BookAppointment() {
          {/* Main Form Section */}
          <section className="flex-grow py-16 bg-gray-50">
             <div className="container mx-auto px-6">
-               <div className="max-w-4xl mx-auto">
-                  <form onSubmit={handleSubmit} className="space-y-10">
-                     {/* Specialty Selection */}
-                     <div>
-                        <label className="text-xl font-bold text-[#1E3A5F] mb-6 block">Select Your Medical Department</label>
-                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                           {specialties.map((specialty) => {
-                              const IconComponent = specialty.icon
-                              const isSelected = formData.selectedSpecialty === specialty.id
-                              return (
-                                 <button
-                                    key={specialty.id}
-                                    type="button"
-                                    onClick={() => handleSpecialtyChange(specialty.id)}
-                                    style={{
-                                       borderColor: isSelected ? specialty.color : "rgb(226, 232, 240)",
-                                       backgroundColor: isSelected ? `${specialty.color}15` : "white",
-                                    }}
-                                    className="p-6 rounded-2xl border-2 transition-all hover:shadow-lg text-left group"
-                                 >
-                                    <div
-                                       style={{ backgroundColor: specialty.color }}
-                                       className="w-12 h-12 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform"
-                                    >
-                                       <IconComponent className="w-6 h-6 text-white" />
-                                    </div>
-                                    <h3 className="font-semibold text-[#1E3A5F] mb-1">{specialty.name}</h3>
-                                    <p className="text-sm text-gray-500">{specialty.description}</p>
-                                    {isSelected && (
-                                       <div
-                                          className="mt-3 flex items-center gap-2 text-sm font-medium"
-                                          style={{ color: specialty.color }}
-                                       >
-                                          <ChevronRight className="w-4 h-4" />
-                                          Selected
-                                       </div>
-                                    )}
-                                 </button>
-                              )
-                           })}
-                        </div>
-                     </div>
+               <div className="max-w-2xl mx-auto">
+                  <form onSubmit={handleSubmit} className="space-y-6">
 
                      {/* Personal Information */}
                      <div className="bg-white p-8 rounded-2xl border border-gray-200">
                         <h2 className="text-xl font-bold text-[#1E3A5F] mb-6">Your Information</h2>
 
-                        <div className="grid md:grid-cols-2 gap-6">
+                        <div className="space-y-5">
                            {/* Full Name */}
                            <div>
                               <label className="block text-sm font-semibold text-gray-700 mb-2">Full Name *</label>
@@ -285,7 +229,7 @@ export default function BookAppointment() {
                               value={formData.notes}
                               onChange={handleInputChange}
                               placeholder="Please describe your symptoms or reason for visit..."
-                              rows={5}
+                              rows={4}
                               className="w-full pl-12 pr-4 py-3 border-2 border-gray-200 rounded-xl focus:border-[#00A896] focus:outline-none transition-colors resize-none"
                            />
                         </div>
@@ -297,19 +241,19 @@ export default function BookAppointment() {
                         <Button
                            type="submit"
                            disabled={
-                              !formData.selectedSpecialty ||
                               !formData.fullName ||
                               !formData.email ||
                               !formData.phone ||
                               !formData.appointmentDate ||
-                              !formData.appointmentTime
+                              !formData.appointmentTime ||
+                              loading
                            }
                            style={{
                               background: "linear-gradient(to right, #00A896, #028090)",
                            }}
                            className="text-white px-8 py-6 rounded-full text-base font-medium shadow-xl transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                           {submitted ? "Booking Confirmed!" : "Book Appointment"}
+                           {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : submitted ? "Booking Confirmed!" : "Book Appointment"}
                         </Button>
                      </div>
 
@@ -321,7 +265,7 @@ export default function BookAppointment() {
                         >
                            <h3 className="font-bold text-[#028090] mb-2">Appointment Booked Successfully!</h3>
                            <p className="text-gray-600">
-                              We've received your booking. Our team will confirm your appointment shortly via email and phone.
+                              We&apos;ve received your booking. Our team will confirm your appointment shortly via email and phone.
                            </p>
                         </div>
                      )}

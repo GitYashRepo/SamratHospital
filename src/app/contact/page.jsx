@@ -1,12 +1,13 @@
 "use client"
 
 
-import { Phone, Mail, MapPin, Clock, Send, CheckCircle2 } from "lucide-react"
+import { Phone, Mail, MapPin, Clock, Send, CheckCircle2, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useState } from "react"
 
 const ContactPage = () => {
    const [submitted, setSubmitted] = useState(false)
+   const [loading, setLoading] = useState(false)
    const [formData, setFormData] = useState({
       name: "",
       email: "",
@@ -23,19 +24,38 @@ const ContactPage = () => {
       }))
    }
 
-   const handleSubmit = (e) => {
+   const handleSubmit = async (e) => {
       e.preventDefault()
-      setSubmitted(true)
-      setTimeout(() => {
-         setSubmitted(false)
-         setFormData({
-            name: "",
-            email: "",
-            phone: "",
-            subject: "",
-            message: "",
+      setLoading(true)
+
+      try {
+         const res = await fetch("/api/contact", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData),
          })
-      }, 3000)
+
+         if (res.ok) {
+            setSubmitted(true)
+            setTimeout(() => {
+               setSubmitted(false)
+               setFormData({
+                  name: "",
+                  email: "",
+                  phone: "",
+                  subject: "",
+                  message: "",
+               })
+            }, 5000)
+         } else {
+            alert("Failed to send message. Please try again.")
+         }
+      } catch (err) {
+         console.error(err)
+         alert("An error occurred. Please try again.")
+      } finally {
+         setLoading(false)
+      }
    }
 
    const contactInfo = [
@@ -225,8 +245,10 @@ const ContactPage = () => {
                               style={{ background: "linear-gradient(to right, #00A896, #028090)" }}
                               className="w-full text-white px-8 py-3 rounded-lg font-medium hover:shadow-lg transition-shadow flex items-center justify-center gap-2"
                            >
-                              <Send className="w-4 h-4" />
-                              Send Message
+                              {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <>
+                                 <Send className="w-4 h-4" />
+                                 Send Message
+                              </>}
                            </Button>
                         </form>
                      )}
