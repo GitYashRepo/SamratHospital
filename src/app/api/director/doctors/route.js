@@ -2,8 +2,13 @@ import { NextResponse } from 'next/server';
 import dbConnect from '@/lib/db';
 import Doctor from '@/models/Doctor';
 import { getAuthUser } from '@/lib/auth';
-import { writeFile, mkdir } from 'fs/promises';
-import path from 'path';
+import { v2 as cloudinary } from 'cloudinary';
+
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
 
 export async function GET() {
   try {
@@ -36,17 +41,16 @@ export async function POST(req) {
       return NextResponse.json({ message: 'All fields are required' }, { status: 400 });
     }
 
-    // Ensure uploads directory exists
-    const uploadDir = path.join(process.cwd(), 'public/uploads/doctors');
-    await mkdir(uploadDir, { recursive: true });
-
-    // Handle Image Upload
+    // Upload image to Cloudinary (works in serverless / Vercel)
     const buffer = Buffer.from(await image.arrayBuffer());
-    const filename = `${Date.now()}-${image.name.replaceAll(' ', '_')}`;
-    const filePath = path.join(uploadDir, filename);
-    await writeFile(filePath, buffer);
+    const base64Image = `data:${image.type};base64,${buffer.toString('base64')}`;
 
-    const imageUrl = `/uploads/doctors/${filename}`;
+    const uploadResult = await cloudinary.uploader.upload(base64Image, {
+      folder: 'samrat-hospital/doctors',
+      resource_type: 'image',
+    });
+
+    const imageUrl = uploadResult.secure_url;
 
     await dbConnect();
     const newDoctor = await Doctor.create({
