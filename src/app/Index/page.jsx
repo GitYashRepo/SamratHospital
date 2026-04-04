@@ -1,4 +1,7 @@
-import { ArrowRight, Heart, Shield, Users, Clock, Award, Stethoscope, Brain, Bone, Baby, Activity, Phone, Star, ChevronRight, CheckCircle2, Play, Sparkles } from "lucide-react";
+"use client";
+
+import { useState, useEffect } from "react";
+import { ArrowRight, Heart, Shield, Users, Clock, Award, Stethoscope, Brain, Bone, Baby, Activity, Phone, Star, ChevronRight, CheckCircle2, Play, Sparkles, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 
@@ -19,12 +22,16 @@ const Index = () => {
       { value: "24/7", label: "Emergency Care", icon: Clock },
    ];
 
-   const doctors = [
-      { name: "Dr. Priya", specialty: "Cardiology", image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop&crop=faces", color: "#D62828" },
-      { name: "Dr. Manish", specialty: "Neurology", image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=500&fit=crop&crop=faces", color: "#7B2D8E" },
-      { name: "Dr. Sejal", specialty: "Pediatrics", image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=500&fit=crop&crop=faces", color: "#F77F00" },
-      { name: "Dr. Yuvraj", specialty: "Orthopedics", image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=500&fit=crop&crop=faces", color: "#00A896" },
-   ];
+   const [doctors, setDoctors] = useState([]);
+   const [doctorsLoading, setDoctorsLoading] = useState(true);
+
+   useEffect(() => {
+      fetch("/api/director/doctors")
+         .then((r) => r.json())
+         .then((d) => setDoctors((d.data || []).slice(0, 4)))
+         .catch(console.error)
+         .finally(() => setDoctorsLoading(false));
+   }, []);
 
    const testimonials = [
       { name: "Ajay Singh", text: "The care I received was exceptional. The doctors and staff made me feel comfortable throughout my treatment.", rating: 5, department: "Cardiology" },
@@ -242,35 +249,52 @@ const Index = () => {
                </div>
 
                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                  {doctors.map((doctor, index) => (
-                     <div key={index} className="group cursor-pointer">
-                        <div className="relative overflow-hidden rounded-2xl mb-4">
-                           <img
-                              src={doctor.image}
-                              alt={doctor.name}
-                              className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
-                           />
-                           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                           <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity translate-y-4 group-hover:translate-y-0">
-                              <Button size="sm" className="w-full bg-white text-[#1E3A5F] hover:bg-gray-100 rounded-full text-sm font-medium">
-                                 View Profile
-                              </Button>
-                           </div>
-                        </div>
-                        <div className="flex items-center gap-2 mb-2">
-                           <span className="w-2 h-2 rounded-full" style={{ backgroundColor: doctor.color }} />
-                           <p className="text-sm text-gray-500 font-medium">{doctor.specialty}</p>
-                        </div>
-                        <h3 className="text-lg font-bold text-[#1E3A5F]">{doctor.name}</h3>
+                  {doctorsLoading ? (
+                     <div className="col-span-full flex justify-center py-16">
+                        <Loader2 className="w-10 h-10 animate-spin text-[#00A896]" />
                      </div>
-                  ))}
+                  ) : doctors.length > 0 ? (
+                     doctors.map((doctor) => (
+                        <div key={doctor._id} className="group cursor-pointer">
+                           <div className="relative overflow-hidden rounded-2xl mb-4">
+                              <img
+                                 src={doctor.image}
+                                 alt={doctor.name}
+                                 className="w-full h-80 object-cover group-hover:scale-110 transition-transform duration-500"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                              <div className="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity translate-y-4 group-hover:translate-y-0">
+                                 <Link href="/book-appointment">
+                                    <Button size="sm" className="w-full bg-white text-[#1E3A5F] hover:bg-gray-100 rounded-full text-sm font-medium">
+                                       Book Appointment
+                                    </Button>
+                                 </Link>
+                              </div>
+                           </div>
+                           <div className="flex items-center gap-2 mb-2">
+                              <span className="w-2 h-2 rounded-full bg-[#00A896]" />
+                              <p className="text-sm text-gray-500 font-medium">{doctor.specialty}</p>
+                           </div>
+                           <h3 className="text-lg font-bold text-[#1E3A5F]">{doctor.name}</h3>
+                           {doctor.qualification && (
+                              <p className="text-sm text-[#00A896] font-medium mt-0.5">{doctor.qualification}</p>
+                           )}
+                        </div>
+                     ))
+                  ) : (
+                     <div className="col-span-full text-center py-12 text-gray-400">
+                        <p className="font-medium">No doctors listed yet. <Link href="/doctors" className="text-[#00A896] hover:underline">Visit our doctors page</Link>.</p>
+                     </div>
+                  )}
                </div>
 
                <div className="text-center mt-12">
-                  <Button variant="outline" className="border-2 border-[#1E3A5F] text-[#1E3A5F] hover:bg-[#1E3A5F] hover:text-white px-8 py-6 rounded-full text-base font-medium transition-all">
-                     View All Doctors
-                     <ArrowRight className="w-4 h-4 ml-2" />
-                  </Button>
+                  <Link href="/doctors">
+                     <Button variant="outline" className="border-2 border-[#1E3A5F] text-[#1E3A5F] hover:bg-[#1E3A5F] hover:text-white px-8 py-6 rounded-full text-base font-medium transition-all">
+                        View All Doctors
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                     </Button>
+                  </Link>
                </div>
             </div>
          </section>
@@ -336,10 +360,11 @@ const Index = () => {
                                  <ArrowRight className="w-5 h-5 ml-2" />
                               </Button>
                            </Link>
-                           <Button variant="outline" className="border-2 border-white text-teal-800 hover:bg-white hover:text-[#00A896] px-10 py-7 rounded-full text-lg font-semibold transition-all">
+                           <a href="tel:+919053744402"><Button variant="outline" className="border-2 border-white text-teal-800 hover:bg-white hover:text-[#00A896] px-10 py-7 rounded-full text-lg font-semibold transition-all">
                               <Phone className="w-5 h-5 mr-2" />
                               Call Us Now
                            </Button>
+                           </a>
                         </div>
 
                         <div className="flex flex-wrap justify-center gap-8 mt-12">

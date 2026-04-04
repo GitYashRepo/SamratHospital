@@ -1,144 +1,31 @@
 "use client";
 
-import { Star, Award, Clock, Users } from "lucide-react"
+import { Star, Award, Clock, Users, Loader2 } from "lucide-react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link";
 
 const DoctorsPage = () => {
-   const doctors = [
-      {
-         id: 1,
-         name: "Dr. Priya Mittal",
-         specialty: "Cardiology",
-         experience: "10+ years",
-         image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=500&fit=crop&crop=faces",
-         rating: 4.9,
-         reviews: 247,
-         bio: "Chief of Cardiology with expertise in interventional cardiology and complex heart procedures.",
-         qualifications: [
-            "MD - Harvard Medical School",
-            "Board Certified in Cardiology",
-            "Fellowship in Interventional Cardiology",
-         ],
-         availability: "Mon-Fri 9AM-5PM",
-         color: "#D62828",
-      },
-      {
-         id: 2,
-         name: "Dr. Manish Yadav",
-         specialty: "Neurology",
-         experience: "18+ years",
-         image: "https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=400&h=500&fit=crop&crop=faces",
-         rating: 4.8,
-         reviews: 198,
-         bio: "Expert neurologist specializing in neurosurgery and complex neurological disorders.",
-         qualifications: ["MD - Johns Hopkins University", "Board Certified in Neurology", "Fellowship in Neurosurgery"],
-         availability: "Tue-Sat 10AM-6PM",
-         color: "#7B2D8E",
-      },
-      {
-         id: 3,
-         name: "Dr. Sejal Pandey",
-         specialty: "Pediatrics",
-         experience: "15+ years",
-         image: "https://images.unsplash.com/photo-1594824476967-48c8b964273f?w=400&h=500&fit=crop&crop=faces",
-         rating: 5.0,
-         reviews: 215,
-         bio: "Compassionate pediatrician with special focus on emergency medicine and infant care.",
-         qualifications: [
-            "MD - Stanford University",
-            "Board Certified in Pediatrics",
-            "Fellowship in Pediatric Emergency Medicine",
-         ],
-         availability: "Mon-Thu 8AM-4PM",
-         color: "#F77F00",
-      },
-      {
-         id: 4,
-         name: "Dr. Yuvraj Soni",
-         specialty: "Orthopedics",
-         experience: "22+ years",
-         image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=500&fit=crop&crop=faces",
-         rating: 4.9,
-         reviews: 267,
-         bio: "Leading orthopedic surgeon specializing in joint replacement and sports medicine.",
-         qualifications: [
-            "MD - Yale School of Medicine",
-            "Board Certified in Orthopedic Surgery",
-            "Fellowship in Joint Replacement",
-         ],
-         availability: "Mon-Wed-Fri 7AM-3PM",
-         color: "#00A896",
-      },
-      {
-         id: 5,
-         name: "Dr. Vivek Mishra",
-         specialty: "General Surgery",
-         experience: "25+ years",
-         image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=faces",
-         rating: 4.8,
-         reviews: 289,
-         bio: "Senior surgeon with extensive experience in general and trauma surgery.",
-         qualifications: [
-            "MD - Columbia University",
-            "Board Certified in General Surgery",
-            "Fellowship in Trauma Surgery",
-         ],
-         availability: "Tue-Thu-Sat 8AM-5PM",
-         color: "#D62828",
-      },
-      {
-         id: 6,
-         name: "Dr. Himanshu Singh",
-         specialty: "Radiology",
-         experience: "19+ years",
-         image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=500&fit=crop&crop=faces",
-         rating: 4.7,
-         reviews: 156,
-         bio: "Expert radiologist specializing in diagnostic imaging and interventional procedures.",
-         qualifications: [
-            "MD - Duke University",
-            "Board Certified in Radiology",
-            "Fellowship in Interventional Radiology",
-         ],
-         availability: "Mon-Fri 9AM-6PM",
-         color: "#028090",
-      },
-      // {
-      //    id: 7,
-      //    name: "Dr. Vishal Gupta",
-      //    specialty: "Obstetrics & Gynecology",
-      //    experience: "17+ years",
-      //    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=500&fit=crop&crop=faces",
-      //    rating: 4.9,
-      //    reviews: 223,
-      //    bio: "Compassionate OB/GYN providing comprehensive women's health care and obstetric services.",
-      //    qualifications: [
-      //       "MD - University of Pennsylvania",
-      //       "Board Certified in OB/GYN",
-      //       "Fellowship in Maternal Fetal Medicine",
-      //    ],
-      //    availability: "Tue-Thu-Sat 8AM-4PM",
-      //    color: "#F77F00",
-      // },
-      // {
-      //    id: 8,
-      //    name: "Dr. Ajit Sharma",
-      //    specialty: "Internal Medicine",
-      //    experience: "21+ years",
-      //    image: "https://images.unsplash.com/photo-1537746727612-13b3971a58f3?w=400&h=500&fit=crop&crop=faces",
-      //    rating: 4.8,
-      //    reviews: 201,
-      //    bio: "Dedicated internist providing primary care and management of chronic diseases.",
-      //    qualifications: [
-      //       "MD - Boston University",
-      //       "Board Certified in Internal Medicine",
-      //       "Board Certified in Geriatric Medicine",
-      //    ],
-      //    availability: "Mon-Wed-Fri 8AM-5PM",
-      //    color: "#00A896",
-      // },
-   ]
+   const [doctors, setDoctors] = useState([])
+   const [loading, setLoading] = useState(true)
+
+   useEffect(() => {
+      fetchDoctors()
+   }, [])
+
+   const fetchDoctors = async () => {
+      try {
+         const res = await fetch("/api/director/doctors")
+         const data = await res.json()
+         if (res.ok) {
+            setDoctors(data.data || [])
+         }
+      } catch (err) {
+         console.error("Error fetching doctors:", err)
+      } finally {
+         setLoading(false)
+      }
+   }
 
    return (
       <div className="min-h-screen bg-white">
@@ -164,119 +51,90 @@ const DoctorsPage = () => {
             </div>
          </section>
 
-         {/* Search & Filter Section */}
-         <section className="py-12 bg-white border-b border-gray-100">
-            <div className="container mx-auto px-6">
-               <div className="flex flex-col md:flex-row gap-4">
-                  <input
-                     type="text"
-                     placeholder="Search by doctor name or specialty..."
-                     style={{ borderColor: "rgba(30, 58, 95, 0.2)" }}
-                     className="flex-1 px-6 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A896]"
-                  />
-                  <select
-                     style={{ borderColor: "rgba(30, 58, 95, 0.2)" }}
-                     className="px-6 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#00A896]"
-                  >
-                     <option>All Specialties</option>
-                     <option>Cardiology</option>
-                     <option>Neurology</option>
-                     <option>Pediatrics</option>
-                     <option>Orthopedics</option>
-                     <option>General Surgery</option>
-                     <option>Radiology</option>
-                  </select>
-               </div>
-            </div>
-         </section>
-
          {/* Doctors Grid */}
          <section className="py-20 bg-white">
             <div className="container mx-auto px-6">
                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {doctors.map((doctor) => (
-                     <div
-                        key={doctor.id}
-                        style={{ borderColor: `${doctor.color}20` }}
-                        className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border bg-white group"
-                     >
-                        {/* Doctor Image */}
-                        <div className="relative overflow-hidden h-72">
-                           <img
-                              src={doctor.image || "/placeholder.svg"}
-                              alt={doctor.name}
-                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                           />
-                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                  {loading ? (
+                     <div className="col-span-full py-20 flex justify-center">
+                        <Loader2 className="w-12 h-12 animate-spin text-[#00A896]" />
+                     </div>
+                  ) : doctors.length > 0 ? (
+                     doctors.map((doctor) => (
+                        <div
+                           key={doctor._id}
+                           className="rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all border border-[#00A896]/10 bg-white group"
+                        >
+                           {/* Doctor Image */}
+                           <div className="relative overflow-hidden h-72">
+                              <img
+                                 src={doctor.image || "/placeholder.svg"}
+                                 alt={doctor.name}
+                                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-                           {/* Rating Badge */}
-                           <div
-                              style={{ background: `${doctor.color}99` }}
-                              className="absolute top-4 right-4 flex items-center gap-1 px-3 py-2 rounded-full text-white text-sm font-semibold"
-                           >
-                              <Star className="w-4 h-4 fill-current" />
-                              {doctor.rating}
-                           </div>
-                        </div>
+                              {/* Specialty Badge */}
+                              {doctor.specialty && (
+                                 <div
+                                    className="absolute top-4 left-4 flex items-center gap-1 px-3 py-1.5 rounded-full text-white text-xs font-bold"
+                                    style={{ background: "rgba(0,168,150,0.85)", backdropFilter: "blur(4px)" }}
+                                 >
+                                    <Star className="w-3 h-3 fill-current" />
+                                    {doctor.specialty}
+                                 </div>
+                              )}
 
-                        {/* Content */}
-                        <div className="p-6">
-                           <div className="mb-3">
-                              <span
-                                 style={{ background: `${doctor.color}15`, color: doctor.color }}
-                                 className="inline-block px-3 py-1 rounded-full text-xs font-semibold"
-                              >
-                                 {doctor.specialty}
-                              </span>
-                           </div>
-
-                           <h3 className="text-xl font-bold text-[#1E3A5F] mb-2">{doctor.name}</h3>
-
-                           <div className="flex items-center gap-2 text-sm text-gray-600 mb-3">
-                              <Award className="w-4 h-4" />
-                              <span>{doctor.experience}</span>
+                              {/* Name over image */}
+                              <div className="absolute bottom-0 left-0 right-0 p-5">
+                                 <h3 className="text-xl font-bold text-white">{doctor.name}</h3>
+                                 <p className="text-sm text-[#7DD3C0] font-medium">{doctor.qualification}</p>
+                              </div>
                            </div>
 
-                           <p className="text-sm text-gray-600 mb-4 line-clamp-2">{doctor.bio}</p>
+                           {/* Content */}
+                           <div className="p-5">
+                              {/* Experience & Availability */}
+                              <div className="flex flex-wrap gap-2 mb-4">
+                                 {doctor.experience && (
+                                    <span className="flex items-center gap-1.5 text-xs font-semibold text-blue-700 bg-blue-50 px-3 py-1.5 rounded-full border border-blue-100">
+                                       <Award className="w-3.5 h-3.5" />
+                                       {doctor.experience}
+                                    </span>
+                                 )}
+                                 {doctor.availability && (
+                                    <span className="flex items-center gap-1.5 text-xs font-semibold text-orange-700 bg-orange-50 px-3 py-1.5 rounded-full border border-orange-100">
+                                       <Clock className="w-3.5 h-3.5" />
+                                       {doctor.availability}
+                                    </span>
+                                 )}
+                              </div>
 
-                           {/* Stats */}
-                           <div className="flex items-center gap-4 text-xs text-gray-500 mb-4 pb-4 border-b border-gray-100">
-                              <span className="flex items-center gap-1">
-                                 <Star className="w-3 h-3 text-[#F77F00]" />
-                                 {doctor.reviews} reviews
-                              </span>
-                              <span className="flex items-center gap-1">
-                                 <Clock className="w-3 h-3" />
-                                 {doctor.availability}
-                              </span>
-                           </div>
+                              <p className="text-sm text-gray-600 mb-5 line-clamp-2 leading-relaxed">{doctor.description}</p>
 
-                           {/* Action Buttons */}
-                           <div className="flex gap-2">
-                              <Link href="book-appointment">
+                              {/* Action Button */}
+                              <Link href="/book-appointment" className="block">
                                  <Button
-                                    style={{ background: doctor.color }}
-                                    className="flex-1 text-white rounded-lg text-sm font-medium hover:opacity-90"
+                                    style={{ background: "#00A896" }}
+                                    className="w-full text-white rounded-xl text-sm font-bold hover:opacity-90 py-5"
                                  >
                                     Book Appointment
                                  </Button>
                               </Link>
-                              <Button
-                                 variant="outline"
-                                 style={{ borderColor: doctor.color, color: doctor.color }}
-                                 className="flex-1 rounded-lg text-sm font-medium hover:bg-gray-50 bg-transparent"
-                              >
-                                 View Profile
-                              </Button>
                            </div>
                         </div>
+                     ))
+                  ) : (
+                     <div className="col-span-full py-20 text-center">
+                        <div className="text-gray-400 text-6xl mb-4">🏥</div>
+                        <p className="text-gray-500 font-medium text-lg">No doctors found. Please check back later.</p>
                      </div>
-                  ))}
+                  )}
                </div>
             </div>
          </section>
 
-         {/* Credentials & Qualifications */}
+         {/* Why Choose Section */}
          <section
             style={{
                background: "linear-gradient(to right, rgb(230, 244, 241), rgb(240, 249, 248))",
@@ -328,9 +186,11 @@ const DoctorsPage = () => {
                <p className="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
                   Contact our scheduling team or book your appointment online today. Our doctors look forward to serving you.
                </p>
-               <Button className="bg-white text-[#00A896] hover:bg-gray-100 px-8 py-6 rounded-full text-base font-medium shadow-lg">
-                  Book Now
-               </Button>
+               <Link href="/book-appointment">
+                  <Button className="bg-white text-[#00A896] hover:bg-gray-100 px-8 py-6 rounded-full text-base font-medium shadow-lg">
+                     Book Now
+                  </Button>
+               </Link>
             </div>
          </section>
       </div>

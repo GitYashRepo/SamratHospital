@@ -13,22 +13,22 @@ const Navbar = () => {
    const [mobileSpecialitiesOpen, setMobileSpecialitiesOpen] = useState(false)
 
    return (
-      <header className="w-full sm:pb-0 sticky top-0 lg:static z-[99999]">
+      <header className="w-full sm:pb-0 fixed top-0 lg:static z-[99999]">
          {/* Top Bar - Contact Info */}
          <div style={{ background: "linear-gradient(to right, #1E3A5F, #2B4A6F)" }} className="text-white hidden lg:block">
             <div className="mx-auto px-16">
                <div className="flex items-center justify-between h-9 text-xs">
                   <div className="flex items-center gap-6">
-                     <a href="tel:+1234567890" className="flex items-center gap-1.5 hover:text-[#7DD3C0] transition-colors">
+                     <a href="tel:+919053744402" className="flex items-center gap-1.5 hover:text-[#7DD3C0] transition-colors">
                         <Phone className="w-3 h-3" />
-                        <span>+1 (234) 567-890</span>
+                        <span>++91 90537 44402</span>
                      </a>
                      <a
-                        href="mailto:info@samrathospital.com"
+                        href="mailto:samrathospitalrewari@gmail.com"
                         className="flex items-center gap-1.5 hover:text-[#7DD3C0] transition-colors"
                      >
                         <Mail className="w-3 h-3" />
-                        <span>info@samrathospital.com</span>
+                        <span>samrathospitalrewari@gmail.com</span>
                      </a>
                   </div>
                   <div className="hidden md:flex items-center gap-6">
