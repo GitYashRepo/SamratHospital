@@ -26,8 +26,9 @@ export async function middleware(request) {
     return NextResponse.next();
   }
 
-  // 2. Protect dashboard and api/director routes
-  if (pathname.startsWith('/dashboard') || pathname.startsWith('/api/director')) {
+  // 2. Protect dashboard and api/director routes (but allow public GET on /api/director/doctors)
+  const isPublicApiRoute = pathname === '/api/director/doctors';
+  if ((pathname.startsWith('/dashboard') || pathname.startsWith('/api/director')) && !isPublicApiRoute) {
     if (!token) {
       return NextResponse.redirect(new URL('/login', request.url));
     }
