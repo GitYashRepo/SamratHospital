@@ -1,20 +1,21 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { 
-   Users, 
-   Stethoscope, 
-   Calendar, 
-   MessageSquare, 
-   LogOut, 
-   Plus, 
-   Trash2, 
+import {
+   Users,
+   Stethoscope,
+   Calendar,
+   MessageSquare,
+   LogOut,
+   Plus,
+   Trash2,
    Clock,
    Loader2,
    Upload,
    Hospital,
    Award,
-   Star
+   Star,
+   Pencil
 } from "lucide-react"
 import { useRouter } from "next/navigation"
 
@@ -29,6 +30,7 @@ export default function DirectorDashboard() {
       messages: []
    })
    const [isModalOpen, setIsModalOpen] = useState(false)
+   const [editId, setEditId] = useState(null)
    const [formData, setFormData] = useState({})
    const [actionLoading, setActionLoading] = useState(false)
    const router = useRouter()
@@ -62,7 +64,7 @@ export default function DirectorDashboard() {
             fetch("/api/appointments"),
             fetch("/api/contact")
          ])
-         
+
          const [receptionists, doctors, appointments, messages] = await Promise.all([
             recRes.json(),
             docRes.json(),
@@ -99,6 +101,20 @@ export default function DirectorDashboard() {
       }
    }
 
+   const handleEditClick = (doc) => {
+      setEditId(doc._id)
+      setFormData({
+         name: doc.name,
+         qualification: doc.qualification,
+         specialty: doc.specialty,
+         experience: doc.experience,
+         availability: doc.availability,
+         description: doc.description,
+         imageFile: null // Reset image file, will only update if new one is selected
+      })
+      setIsModalOpen(true)
+   }
+
    const handleCreate = async (e) => {
       e.preventDefault()
       setActionLoading(true)
@@ -118,16 +134,24 @@ export default function DirectorDashboard() {
             fd.append("experience", formData.experience || "")
             fd.append("availability", formData.availability || "")
             fd.append("description", formData.description || "")
-            fd.append("image", formData.imageFile)
+            if (formData.imageFile) {
+               fd.append("image", formData.imageFile)
+            } else if (!editId) {
+               alert("Please select an image")
+               setActionLoading(false)
+               return
+            }
             
-            res = await fetch("/api/director/doctors", {
-               method: "POST",
+            const endpoint = editId ? `/api/director/doctors/${editId}` : "/api/director/doctors"
+            res = await fetch(endpoint, {
+               method: editId ? "PUT" : "POST",
                body: fd
             })
          }
 
          if (res.ok) {
             setIsModalOpen(false)
+            setEditId(null)
             setFormData({})
             fetchAllData()
          } else {
@@ -185,11 +209,10 @@ export default function DirectorDashboard() {
                   <button
                      key={item.id}
                      onClick={() => setActiveTab(item.id)}
-                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${
-                        activeTab === item.id 
-                        ? "bg-[#00A896] text-white shadow-lg" 
+                     className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl transition-all ${activeTab === item.id
+                        ? "bg-[#00A896] text-white shadow-lg"
                         : "text-white/70 hover:bg-white/5 hover:text-white"
-                     }`}
+                        }`}
                   >
                      <item.icon className="w-5 h-5" />
                      <span className="font-medium">{item.label}</span>
@@ -198,7 +221,7 @@ export default function DirectorDashboard() {
             </nav>
 
             <div className="p-6 mt-auto">
-               <button 
+               <button
                   onClick={handleLogout}
                   className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-red-300 hover:bg-red-500/10 hover:text-red-400 transition-all font-medium"
                >
@@ -217,10 +240,14 @@ export default function DirectorDashboard() {
                   </h2>
                   <p className="text-gray-500 mt-1">Manage and monitor hospital {activeTab}.</p>
                </div>
-               
+
                {(activeTab === "receptionists" || activeTab === "doctors") && (
-                  <button 
-                     onClick={() => setIsModalOpen(true)}
+                  <button
+                     onClick={() => {
+                        setEditId(null)
+                        setFormData({})
+                        setIsModalOpen(true)
+                     }}
                      className="flex items-center gap-2 bg-[#00A896] hover:bg-[#008F7E] text-white px-6 py-3 rounded-xl font-bold transition-all shadow-lg shadow-[#00A896]/20"
                   >
                      <Plus className="w-5 h-5" />
@@ -251,7 +278,7 @@ export default function DirectorDashboard() {
                                     {new Date(rec.createdAt).toLocaleDateString()}
                                  </td>
                                  <td className="py-4 px-4 text-right">
-                                    <button 
+                                    <button
                                        onClick={() => handleDelete("receptionist", rec._id)}
                                        className="p-2 text-red-500 hover:bg-red-50 border border-transparent rounded-lg transition-all"
                                     >
@@ -269,12 +296,20 @@ export default function DirectorDashboard() {
                   <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                      {data.doctors.map((doc) => (
                         <div key={doc._id} className="group bg-[#FBFDFF] border border-gray-100 p-6 rounded-2xl hover:shadow-xl transition-all relative">
-                           <button 
-                              onClick={() => handleDelete("doctor", doc._id)}
-                              className="absolute top-4 right-4 p-2 text-red-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-all pointer-events-auto"
-                           >
-                              <Trash2 className="w-4 h-4" />
-                           </button>
+                           <div className="absolute top-4 right-4 flex gap-2">
+                              <button 
+                                 onClick={() => handleEditClick(doc)}
+                                 className="p-2 text-blue-300 hover:text-blue-500 opacity-0 group-hover:opacity-100 transition-all pointer-events-auto"
+                              >
+                                 <Pencil className="w-4 h-4" />
+                              </button>
+                              <button 
+                                 onClick={() => handleDelete("doctor", doc._id)}
+                                 className="p-2 text-red-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-all pointer-events-auto"
+                              >
+                                 <Trash2 className="w-4 h-4" />
+                              </button>
+                           </div>
                            <div className="flex items-center gap-4 mb-4">
                               <img src={doc.image} alt={doc.name} className="w-16 h-16 rounded-xl object-cover shadow-md" />
                               <div>
@@ -335,12 +370,11 @@ export default function DirectorDashboard() {
                                     <div className="text-xs text-[#00A896] font-medium">{app.appointmentTime}</div>
                                  </td>
                                  <td className="py-4 px-4">
-                                    <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase ${
-                                       app.status === "pending" ? "bg-yellow-50 text-yellow-600" :
+                                    <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase ${app.status === "pending" ? "bg-yellow-50 text-yellow-600" :
                                        app.status === "confirmed" ? "bg-blue-50 text-blue-600" :
-                                       app.status === "completed" ? "bg-green-50 text-green-600" :
-                                       "bg-red-50 text-red-600"
-                                    }`}>
+                                          app.status === "completed" ? "bg-green-50 text-green-600" :
+                                             "bg-red-50 text-red-600"
+                                       }`}>
                                        {app.status}
                                     </span>
                                  </td>
@@ -360,15 +394,14 @@ export default function DirectorDashboard() {
                                  <h3 className="font-bold text-[#1E3A5F]">{msg.subject}</h3>
                                  <p className="text-sm text-gray-500">From: {msg.name} ({msg.email})</p>
                               </div>
-                              <select 
+                              <select
                                  value={msg.status}
                                  onChange={(e) => handleUpdateStatus("message", msg._id, e.target.value)}
-                                 className={`text-xs font-bold uppercase rounded-lg px-3 py-2 border outline-none cursor-pointer ${
-                                    msg.status === "unread" ? "bg-red-50 border-red-100 text-red-500" :
+                                 className={`text-xs font-bold uppercase rounded-lg px-3 py-2 border outline-none cursor-pointer ${msg.status === "unread" ? "bg-red-50 border-red-100 text-red-500" :
                                     msg.status === "meeting_scheduled" ? "bg-orange-50 border-orange-100 text-orange-500" :
-                                    msg.status === "read" ? "bg-gray-50 border-gray-100 text-gray-500" :
-                                    "bg-green-50 border-green-100 text-green-500"
-                                 }`}
+                                       msg.status === "read" ? "bg-gray-50 border-gray-100 text-gray-500" :
+                                          "bg-green-50 border-green-100 text-green-500"
+                                    }`}
                               >
                                  {messageStatuses.map(s => (
                                     <option key={s} value={s}>{s.replace("_", " ")}</option>
@@ -395,9 +428,13 @@ export default function DirectorDashboard() {
                   {/* Modal Header */}
                   <div className="p-8 border-b border-gray-100 flex justify-between items-center bg-[#FBFDFF] shrink-0">
                      <h3 className="text-xl font-bold text-[#1E3A5F]">
-                        Add New {activeTab === "receptionists" ? "Receptionist Account" : "Doctor Profile"}
+                        {editId ? "Edit Doctor Profile" : `Add New ${activeTab === "receptionists" ? "Receptionist Account" : "Doctor Profile"}`}
                      </h3>
-                     <button onClick={() => setIsModalOpen(false)} className="p-2 hover:bg-gray-100 rounded-full text-gray-400">
+                     <button onClick={() => {
+                        setIsModalOpen(false)
+                        setEditId(null)
+                        setFormData({})
+                     }} className="p-2 hover:bg-gray-100 rounded-full text-gray-400">
                         <span className="text-2xl leading-none">&times;</span>
                      </button>
                   </div>
@@ -409,32 +446,32 @@ export default function DirectorDashboard() {
                            <>
                               <div>
                                  <label className="block text-sm font-semibold text-[#1E3A5F] mb-2">Full Name</label>
-                                 <input 
-                                    type="text" 
+                                 <input
+                                    type="text"
                                     required
                                     placeholder="e.g. Priya Sharma"
                                     className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#00A896]/20 focus:border-[#00A896] outline-none"
-                                    onChange={(e) => setFormData({...formData, name: e.target.value})}
+                                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                  />
                               </div>
                               <div>
                                  <label className="block text-sm font-semibold text-[#1E3A5F] mb-2">Email Address</label>
-                                 <input 
-                                    type="email" 
+                                 <input
+                                    type="email"
                                     required
                                     placeholder="e.g. priya@samrathospital.com"
                                     className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#00A896]/20 focus:border-[#00A896] outline-none"
-                                    onChange={(e) => setFormData({...formData, email: e.target.value})}
+                                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                  />
                               </div>
                               <div>
                                  <label className="block text-sm font-semibold text-[#1E3A5F] mb-2">Password</label>
-                                 <input 
-                                    type="password" 
+                                 <input
+                                    type="password"
                                     required
                                     placeholder="Set a secure password"
                                     className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#00A896]/20 focus:border-[#00A896] outline-none"
-                                    onChange={(e) => setFormData({...formData, password: e.target.value})}
+                                    onChange={(e) => setFormData({ ...formData, password: e.target.value })}
                                  />
                               </div>
                            </>
@@ -444,22 +481,24 @@ export default function DirectorDashboard() {
                               <div className="grid md:grid-cols-2 gap-4">
                                  <div>
                                     <label className="block text-sm font-semibold text-[#1E3A5F] mb-2">Doctor Name</label>
-                                    <input 
-                                       type="text" 
+                                    <input
+                                       type="text"
                                        required
+                                       value={formData.name || ""}
                                        placeholder="e.g. Dr. Ramesh Gupta"
                                        className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#00A896]/20 focus:border-[#00A896] outline-none"
-                                       onChange={(e) => setFormData({...formData, name: e.target.value})}
+                                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                     />
                                  </div>
                                  <div>
                                     <label className="block text-sm font-semibold text-[#1E3A5F] mb-2">Qualification</label>
-                                    <input 
-                                       type="text" 
+                                    <input
+                                       type="text"
                                        required
+                                       value={formData.qualification || ""}
                                        placeholder="e.g. MBBS, MD - Cardiology"
                                        className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#00A896]/20 focus:border-[#00A896] outline-none"
-                                       onChange={(e) => setFormData({...formData, qualification: e.target.value})}
+                                       onChange={(e) => setFormData({ ...formData, qualification: e.target.value })}
                                     />
                                  </div>
                               </div>
@@ -468,22 +507,24 @@ export default function DirectorDashboard() {
                               <div className="grid md:grid-cols-2 gap-4">
                                  <div>
                                     <label className="block text-sm font-semibold text-[#1E3A5F] mb-2">Specialty / Department</label>
-                                    <input 
-                                       type="text" 
+                                    <input
+                                       type="text"
                                        required
+                                       value={formData.specialty || ""}
                                        placeholder="e.g. Cardiology"
                                        className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#00A896]/20 focus:border-[#00A896] outline-none"
-                                       onChange={(e) => setFormData({...formData, specialty: e.target.value})}
+                                       onChange={(e) => setFormData({ ...formData, specialty: e.target.value })}
                                     />
                                  </div>
                                  <div>
                                     <label className="block text-sm font-semibold text-[#1E3A5F] mb-2">Experience</label>
-                                    <input 
-                                       type="text" 
+                                    <input
+                                       type="text"
                                        required
+                                       value={formData.experience || ""}
                                        placeholder="e.g. 12+ years"
                                        className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#00A896]/20 focus:border-[#00A896] outline-none"
-                                       onChange={(e) => setFormData({...formData, experience: e.target.value})}
+                                       onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
                                     />
                                  </div>
                               </div>
@@ -491,24 +532,26 @@ export default function DirectorDashboard() {
                               {/* Row 3: Availability */}
                               <div>
                                  <label className="block text-sm font-semibold text-[#1E3A5F] mb-2">Availability / Timings</label>
-                                 <input 
-                                    type="text" 
+                                 <input
+                                    type="text"
                                     required
+                                    value={formData.availability || ""}
                                     placeholder="e.g. Mon-Fri 9AM-5PM"
                                     className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#00A896]/20 focus:border-[#00A896] outline-none"
-                                    onChange={(e) => setFormData({...formData, availability: e.target.value})}
+                                    onChange={(e) => setFormData({ ...formData, availability: e.target.value })}
                                  />
                               </div>
 
                               {/* Row 4: Description */}
                               <div>
                                  <label className="block text-sm font-semibold text-[#1E3A5F] mb-2">Short Bio / Description</label>
-                                 <textarea 
+                                 <textarea
                                     required
                                     rows={3}
+                                    value={formData.description || ""}
                                     placeholder="A brief professional bio highlighting expertise..."
                                     className="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-[#00A896]/20 focus:border-[#00A896] outline-none resize-none"
-                                    onChange={(e) => setFormData({...formData, description: e.target.value})}
+                                    onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                                  />
                               </div>
 
@@ -521,20 +564,20 @@ export default function DirectorDashboard() {
                                        {formData.imageFile ? formData.imageFile.name : "Click to upload image"}
                                     </span>
                                     <span className="text-xs text-gray-400 mt-1">PNG, JPG up to 5MB</span>
-                                    <input 
-                                       type="file" 
-                                       required
+                                    <input
+                                       type="file"
+                                       required={!editId}
                                        accept="image/*"
                                        className="absolute inset-0 opacity-0 cursor-pointer"
-                                       onChange={(e) => setFormData({...formData, imageFile: e.target.files[0]})}
+                                       onChange={(e) => setFormData({ ...formData, imageFile: e.target.files[0] })}
                                     />
                                  </div>
                               </div>
                            </>
                         )}
 
-                        <button 
-                           type="submit" 
+                        <button
+                           type="submit"
                            disabled={actionLoading}
                            className="w-full py-4 bg-[#1E3A5F] text-white rounded-xl font-bold shadow-xl shadow-[#1E3A5F]/20 transition-all hover:bg-[#152a45] disabled:opacity-50"
                         >

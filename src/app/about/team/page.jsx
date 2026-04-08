@@ -119,11 +119,11 @@ const TeamPage = () => {
                         style={{
                            background: `linear-gradient(135deg, ${dept.color.split(" to ")[1]})`,
                         }}
-                        className="p-8 rounded-2xl text-white shadow-lg"
+                        className="p-8 rounded-2xl text-black/80 shadow-lg"
                      >
                         <p className="text-5xl font-bold mb-2">{dept.count}</p>
                         <h3 className="text-xl font-bold mb-2">{dept.name}</h3>
-                        <p className="text-sm text-white/80">{dept.role}</p>
+                        <p className="text-sm text-black/80">{dept.role}</p>
                      </div>
                   ))}
                </div>
@@ -156,58 +156,6 @@ const TeamPage = () => {
                         </p>
                      </div>
                   </div>
-               </div>
-            </div>
-         </section>
-
-         {/* Leadership Team */}
-         <section
-            style={{
-               background: "linear-gradient(to right, rgb(230, 244, 241), rgb(240, 249, 248))",
-            }}
-            className="py-20"
-         >
-            <div className="container mx-auto px-6">
-               <div className="text-center max-w-2xl mx-auto mb-16">
-                  <h2 className="text-4xl font-bold text-[#1E3A5F] mb-4">Department Heads & Specialists</h2>
-                  <p className="text-gray-600">Leading physicians with decades of combined experience in their specialties</p>
-               </div>
-
-               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {team.map((member, index) => (
-                     <div
-                        key={index}
-                        className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow"
-                     >
-                        <div className="relative overflow-hidden h-72">
-                           <img
-                              src={member.image || "/placeholder.svg"}
-                              alt={member.name}
-                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                           />
-                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                           <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                              <h3 className="text-xl font-bold mb-1">{member.name}</h3>
-                              <p className="text-sm text-gray-200">{member.position}</p>
-                           </div>
-                        </div>
-                        <div className="p-6">
-                           <div className="space-y-3">
-                              <div>
-                                 <p className="text-xs text-gray-500 uppercase font-semibold">Experience</p>
-                                 <p className="text-sm font-bold text-[#1E3A5F]">{member.experience}</p>
-                              </div>
-                              <div>
-                                 <p className="text-xs text-gray-500 uppercase font-semibold">Specialization</p>
-                                 <p className="text-sm font-bold text-[#00A896]">{member.specialization}</p>
-                              </div>
-                           </div>
-                           <Button className="w-full mt-4 bg-white border border-[#00A896] text-[#00A896] hover:bg-[#00A896] hover:text-white rounded-full text-sm font-medium transition-all">
-                              View Full Profile
-                           </Button>
-                        </div>
-                     </div>
-                  ))}
                </div>
             </div>
          </section>
@@ -281,9 +229,9 @@ const TeamPage = () => {
                      conferences, certifications, and mentorship opportunities ensure our staff stays at the forefront of
                      medical science and best practices.
                   </p>
-                  <Button className="bg-white text-[#F77F00] hover:bg-gray-100 px-8 py-6 rounded-full text-base font-medium">
+                  {/* <Button className="bg-white text-[#F77F00] hover:bg-gray-100 px-8 py-6 rounded-full text-base font-medium">
                      Join Our Team
-                  </Button>
+                  </Button> */}
                </div>
             </div>
          </section>
@@ -291,14 +239,14 @@ const TeamPage = () => {
          {/* Team Stats */}
          <section className="py-20 bg-white">
             <div className="container mx-auto px-6">
-               <div className="grid md:grid-cols-4 gap-8 text-center">
-                  <div>
+               <div className="grid md:grid-cols-3 gap-8 text-center">
+                  {/*<div>
                      <p className="text-5xl font-bold text-[#00A896] mb-2">300+</p>
                      <p className="text-gray-600 font-medium">Team Members</p>
                   </div>
-
+*/}
                   <div>
-                     <p className="text-5xl font-bold text-[#F77F00] mb-2">500+</p>
+                     <p className="text-5xl font-bold text-[#F77F00] mb-2">100+</p>
                      <p className="text-gray-600 font-medium">Years Combined Experience</p>
                   </div>
 

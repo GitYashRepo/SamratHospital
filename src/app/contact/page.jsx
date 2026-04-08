@@ -68,13 +68,13 @@ const ContactPage = () => {
       {
          icon: Phone,
          title: "Phone",
-         details: ["+1 (234) 567-890", "+1 (234) 567-891"],
+         details: ["+91 90537-44402"],
          color: "#00A896",
       },
       {
          icon: Mail,
          title: "Email",
-         details: ["info@Samrat Hospital.com", "appointments@Samrat Hospital.com"],
+         details: ["samrathospitalrewari@gmail.com"],
          color: "#FCBF49",
       },
       {
@@ -111,7 +111,7 @@ const ContactPage = () => {
 
          {/* Contact Information Cards */}
          <section className="py-20 bg-white">
-            <div className="container mx-auto px-6">
+            <div className="mx-auto px-6">
                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
                   {contactInfo.map((info, index) => (
                      <div
@@ -274,7 +274,7 @@ const ContactPage = () => {
             <div className="container mx-auto px-6">
                <h2 className="text-4xl font-bold text-[#1E3A5F] mb-12 text-center">Other Ways to Reach Us</h2>
 
-               <div className="grid md:grid-cols-3 gap-8">
+               <div className="grid md:grid-cols-2 gap-8">
                   {/* Emergency Care */}
                   <div
                      style={{ borderColor: "rgba(214, 40, 40, 0.2)" }}
@@ -288,23 +288,7 @@ const ContactPage = () => {
                      </div>
                      <h3 className="text-xl font-bold text-[#1E3A5F] mb-3">Emergency Services</h3>
                      <p className="text-gray-600 mb-4">For life-threatening emergencies, call immediately:</p>
-                     <p className="text-2xl font-bold text-[#D62828]">+91 1234567890</p>
-                  </div>
-
-                  {/* Patient Portal */}
-                  <div
-                     style={{ borderColor: "rgba(0, 168, 150, 0.2)" }}
-                     className="p-8 rounded-2xl border bg-white hover:shadow-lg transition-shadow"
-                  >
-                     <div
-                        style={{ background: "rgba(0, 168, 150, 0.1)" }}
-                        className="w-14 h-14 rounded-xl flex items-center justify-center mb-4"
-                     >
-                        <Mail className="w-7 h-7 text-[#00A896]" />
-                     </div>
-                     <h3 className="text-xl font-bold text-[#1E3A5F] mb-3">Patient Portal</h3>
-                     <p className="text-gray-600 mb-4">Access your medical records and appointment history online:</p>
-                     <Button className="w-full bg-[#00A896] text-white hover:bg-[#028090] rounded-lg">Access Portal</Button>
+                     <p className="text-2xl font-bold text-[#D62828]">+91 90537 44402</p>
                   </div>
 
                   {/* Feedback */}
@@ -318,11 +302,8 @@ const ContactPage = () => {
                      >
                         <Send className="w-7 h-7 text-[#F77F00]" />
                      </div>
-                     <h3 className="text-xl font-bold text-[#1E3A5F] mb-3">Patient Feedback</h3>
-                     <p className="text-gray-600 mb-4">Share your experience and help us improve our services:</p>
-                     <Button className="w-full border border-[#F77F00] text-[#F77F00] hover:bg-[#F77F00] hover:text-white rounded-lg">
-                        Leave Feedback
-                     </Button>
+                     <h3 className="text-xl font-bold text-[#1E3A5F] mb-3">Patient Experience</h3>
+                     <p className="text-gray-600 mb-4">Your experience and help us improve our services:</p>
                   </div>
                </div>
             </div>

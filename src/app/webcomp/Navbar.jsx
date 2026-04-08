@@ -13,7 +13,7 @@ const Navbar = () => {
    const [mobileSpecialitiesOpen, setMobileSpecialitiesOpen] = useState(false)
 
    return (
-      <header className="w-full sm:pb-0 fixed top-0 lg:static z-[99999]">
+      <header className="w-full sm:pb-0 fixed top-0 lg:static z-49">
          {/* Top Bar - Contact Info */}
          <div style={{ background: "linear-gradient(to right, #1E3A5F, #2B4A6F)" }} className="text-white hidden lg:block">
             <div className="mx-auto px-16">
@@ -21,7 +21,7 @@ const Navbar = () => {
                   <div className="flex items-center gap-6">
                      <a href="tel:+919053744402" className="flex items-center gap-1.5 hover:text-[#7DD3C0] transition-colors">
                         <Phone className="w-3 h-3" />
-                        <span>++91 90537 44402</span>
+                        <span>+91 90537 44402</span>
                      </a>
                      <a
                         href="mailto:samrathospitalrewari@gmail.com"
@@ -48,7 +48,7 @@ const Navbar = () => {
          {/* Main Navigation */}
          <div
             style={{ background: "rgba(255, 255, 255, 0.95)", backdropFilter: "blur(2px)" }}
-            className="border-b border-gray-100 relative overflow-visible z-[99999999]"
+            className="border-b border-gray-100 relative overflow-visible z-49"
          >
             <div className="mx-auto px-4 md:px-16">
                <div className="flex items-center justify-between h-16">
