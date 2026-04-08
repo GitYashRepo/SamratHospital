@@ -41,109 +41,102 @@ const Index = () => {
 
    return (
       <div className="min-h-screen bg-white">
-         {/* Hero Section - Teal/Blue Theme */}
-         <section className="relative overflow-hidden bg-gradient-to-br from-[#F0F9F8] via-white to-[#E6F4F1]">
-            <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-br from-[#00A896]/10 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/4" />
-            <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#F77F00]/10 to-transparent rounded-full blur-3xl translate-y-1/2 -translate-x-1/4" />
+         {/* Full-Width Hero Banner */}
+         <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+            {/* Background Image with Overlay */}
+            <div className="absolute inset-0 z-0">
+               <img
+                  src="/hospitalimg.webp"
+                  alt="Modern Hospital Background"
+                  className="w-full h-full object-cover scale-105 animate-slow-zoom"
+               />
+               <div className="absolute inset-0 bg-gradient-to-b from-[#1E3A5F]/40 via-[#1E3A5F]/40 to-[#1E3A5F]/40" />
+            </div>
 
-            <div className="mx-auto px-12 py-16 lg:py-24 relative">
-               <div className="grid lg:grid-cols-2 gap-12 items-center">
-                  <div className="space-y-8">
-                     <div className="inline-flex items-center gap-2 bg-gradient-to-r from-[#00A896]/10 to-[#028090]/10 text-[#028090] px-5 py-2.5 rounded-full text-sm font-semibold border border-[#00A896]/20">
-                        <Sparkles className="w-4 h-4" />
-                        <span>Trusted Healthcare Since 2020</span>
-                     </div>
+            <div className="container mx-auto px-6 relative z-10 text-center">
+               <div className="max-w-4xl mx-auto space-y-8">
+                  <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md text-[#7DD3C0] px-6 py-2 rounded-full text-sm font-semibold border border-white/20 animate-fade-in-down">
+                     <Sparkles className="w-4 h-4" />
+                     <span>Trusted Healthcare Since 2020</span>
+                  </div>
 
-                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1E3A5F] leading-tight">
-                        Your Health Is Our
-                        <span className="relative">
-                           <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00A896] to-[#028090]"> Priority</span>
-                           <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none">
-                              <path d="M2 10C50 2 150 2 198 10" stroke="#F77F00" strokeWidth="3" strokeLinecap="round" />
-                           </svg>
-                        </span>
-                     </h1>
+                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight animate-fade-in">
+                     Your Health Is Our
+                     <span className="relative inline-block ml-3">
+                        <span className="text-[#00A896]">Priority</span>
+                        <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none">
+                           <path d="M2 10C50 2 150 2 198 10" stroke="#F77F00" strokeWidth="4" strokeLinecap="round" />
+                        </svg>
+                     </span>
+                  </h1>
 
-                     <p className="text-lg text-gray-600 leading-relaxed max-w-lg">
-                        Experience world-class healthcare with compassion. Our team of expert physicians and state-of-the-art facilities ensure you receive the best care possible.
-                     </p>
+                  <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto animate-fade-in-up">
+                     Experience world-class healthcare with compassion. Our team of expert physicians and state-of-the-art facilities ensure you receive the best care possible.
+                  </p>
 
-                     <div className="flex flex-wrap gap-4">
-                        <Link href="book-appointment">
-                           <Button className="bg-gradient-to-r from-[#00A896] to-[#028090] hover:from-[#009688] hover:to-[#027080] text-white px-8 py-6 rounded-full text-base font-medium shadow-xl shadow-[#00A896]/30 transition-all hover:shadow-2xl hover:shadow-[#00A896]/40 hover:scale-105">
-                              Book Appointment
-                              <ArrowRight className="w-4 h-4 ml-2" />
-                           </Button>
-                        </Link>
-                        <Button variant="outline" className="border-2 border-[#1E3A5F] text-[#1E3A5F] hover:bg-[#1E3A5F] hover:text-white px-8 py-6 rounded-full text-base font-medium transition-all">
-                           <Play className="w-4 h-4 mr-2" />
-                           Watch Video
+                  <div className="flex flex-wrap items-center justify-center gap-6 pt-4 animate-fade-in-up">
+                     <Link href="book-appointment">
+                        <Button className="bg-[#00A896] hover:bg-[#028090] text-white px-10 py-7 rounded-full text-lg font-bold shadow-2xl shadow-[#00A896]/30 transition-all hover:scale-105">
+                           Book Appointment
+                           <ArrowRight className="w-5 h-5 ml-2" />
                         </Button>
-                     </div>
+                     </Link>
+                     <Button variant="outline" className="bg-white/10 backdrop-blur-md border-2 border-white text-white hover:bg-white hover:text-[#1E3A5F] px-10 py-7 rounded-full text-lg font-bold transition-all">
+                        <Play className="w-5 h-5 mr-2" />
+                        Watch Video
+                     </Button>
+                  </div>
 
-                     <div className="flex items-center gap-6 pt-4">
+                  <div className="flex flex-col md:flex-row items-center justify-center gap-8 pt-12 animate-fade-in">
+                     <div className="flex items-center gap-4 bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10">
                         <div className="flex -space-x-3">
                            {[1, 2, 3, 4].map((i) => (
-                              <div key={i} className="w-11 h-11 rounded-full border-3 border-white bg-gray-100 overflow-hidden shadow-lg ring-2 ring-[#00A896]/20">
+                              <div key={i} className="w-10 h-10 rounded-full border-2 border-white overflow-hidden shadow-lg">
                                  <img
-                                    src={`https://i.pravatar.cc/100?img=${i + 10}`}
+                                    src={`https://i.pravatar.cc/100?img=${i + 15}`}
                                     alt="Patient"
                                     className="w-full h-full object-cover"
                                  />
                               </div>
                            ))}
                         </div>
-                        <div>
+                        <div className="text-left">
                            <div className="flex items-center gap-1">
                               {[1, 2, 3, 4, 5].map((i) => (
-                                 <Star key={i} className="w-5 h-5 text-[#F77F00] fill-current" />
+                                 <Star key={i} className="w-4 h-4 text-[#F77F00] fill-current" />
                               ))}
-                              <span className="ml-2 text-sm font-semibold text-[#1E3A5F]">4.9</span>
                            </div>
-                           <p className="text-sm text-gray-500">Trusted by 50,000+ patients</p>
+                           <p className="text-xs text-white/80 font-medium tracking-wide">Trusted by 50,000+ patients</p>
                         </div>
                      </div>
-                  </div>
 
-                  <div className="relative hidden lg:block">
-                     <div className="absolute -top-6 -left-6 w-24 h-24 bg-gradient-to-br from-[#F77F00] to-[#FCBF49] rounded-2xl rotate-12 opacity-80" />
-                     <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-gradient-to-br from-[#00A896] to-[#028090] rounded-3xl -rotate-12 opacity-80" />
+                     <div className="flex items-center gap-6">
+                        <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10">
+                           <div className="w-12 h-12 bg-[#00A896] rounded-xl flex items-center justify-center shadow-lg">
+                              <Users className="w-6 h-6 text-white" />
+                           </div>
+                           <div className="text-left">
+                              <p className="text-2xl font-bold text-white leading-none">20+</p>
+                              <p className="text-xs text-white/60 font-medium">Expert Doctors</p>
+                           </div>
+                        </div>
 
-                     <img
-                        // src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=800&h=900&fit=crop"
-                        src="/hospitalimg.webp"
-                        alt="Doctor with patient"
-                        className="relative w-full h-[580px] object-cover rounded-[2rem] shadow-2xl"
-                     />
-
-                     {/* Floating Card */}
-                     <div className="absolute -left-8 bottom-10 bg-white px-5 py-2 rounded-2xl shadow-2xl border border-gray-100">
-                        <div className="flex items-center gap-4">
-                           <div className="w-14 h-14 bg-gradient-to-br from-[#D62828] to-[#F77F00] rounded-2xl flex items-center justify-center shadow-lg">
+                        <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10">
+                           <div className="w-12 h-12 bg-[#F77F00] rounded-xl flex items-center justify-center shadow-lg">
                               <Phone className="w-6 h-6 text-white" />
                            </div>
-                           <div>
-                              <p className="text-xs text-gray-500 font-medium">24/7 Emergency</p>
-                              <p className="text-xl font-bold text-[#1E3A5F]">+91 (234) 567-890</p>
-                           </div>
-                        </div>
-                     </div>
-
-                     {/* Stats Card */}
-                     <div className="absolute -right-4 top-10 bg-white px-4 py-2 rounded-2xl shadow-2xl border border-gray-100">
-                        <div className="flex items-center gap-3">
-                           <div className="w-10 h-10 bg-gradient-to-br from-[#00A896] to-[#028090] rounded-xl flex items-center justify-center">
-                              <Users className="w-5 h-5 text-white" />
-                           </div>
-                           <div>
-                              <p className="text-2xl font-bold text-[#1E3A5F]">10+</p>
-                              <p className="text-xs text-gray-500">Expert Doctors</p>
+                           <div className="text-left">
+                              <p className="text-2xl font-bold text-white leading-none">24/7</p>
+                              <p className="text-xs text-white/60 font-medium">Care Support</p>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
             </div>
+
+            {/* Bottom Curve/Shadow Decor */}
+            <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-white to-transparent" />
          </section>
 
          {/* Stats Section - Orange/Yellow Gradient */}
