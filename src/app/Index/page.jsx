@@ -84,7 +84,7 @@ const Index = () => {
          <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
             {/* Background Images */}
             {heroSlides.map((slide, index) => (
-               <div 
+               <div
                   key={index}
                   className={`absolute inset-0 z-0 transition-opacity duration-1000 ${currentSlide === index ? "opacity-100" : "opacity-0"}`}
                >
@@ -128,58 +128,58 @@ const Index = () => {
                            <ArrowRight className="w-5 h-5 ml-2" />
                         </Button>
                      </Link>
-                     <Button variant="outline" className="bg-white/10 backdrop-blur-md border-2 border-white text-white hover:bg-white hover:text-[#1E3A5F] px-10 py-7 rounded-full text-lg font-bold transition-all">
+                     {/* <Button variant="outline" className="bg-white/10 backdrop-blur-md border-2 border-white text-white hover:bg-white hover:text-[#1E3A5F] px-10 py-7 rounded-full text-lg font-bold transition-all">
                         <Play className="w-5 h-5 mr-2" />
                         Watch Video
-                     </Button>
+                     </Button> */}
                   </div>
                </div>
 
                {/* Static Decor Content */}
                <div className="flex flex-col md:flex-row items-center justify-center gap-8 pt-8 z-20">
                   <div className="flex items-center gap-4 bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10">
-                        <div className="flex -space-x-3">
-                           {[1, 2, 3, 4].map((i) => (
-                              <div key={i} className="w-10 h-10 rounded-full border-2 border-white overflow-hidden shadow-lg">
-                                 <img
-                                    src={`https://i.pravatar.cc/100?img=${i + 15}`}
-                                    alt="Patient"
-                                    className="w-full h-full object-cover"
-                                 />
-                              </div>
+                     <div className="flex -space-x-3">
+                        {[1, 2, 3, 4].map((i) => (
+                           <div key={i} className="w-10 h-10 rounded-full border-2 border-white overflow-hidden shadow-lg">
+                              <img
+                                 src={`https://i.pravatar.cc/100?img=${i + 15}`}
+                                 alt="Patient"
+                                 className="w-full h-full object-cover"
+                              />
+                           </div>
+                        ))}
+                     </div>
+                     <div className="text-left">
+                        <div className="flex items-center gap-1">
+                           {[1, 2, 3, 4, 5].map((i) => (
+                              <Star key={i} className="w-4 h-4 text-[#F77F00] fill-current" />
                            ))}
                         </div>
+                        <p className="text-xs text-white/80 font-medium tracking-wide">Trusted by 50,000+ patients</p>
+                     </div>
+                  </div>
+
+                  <div className="flex items-center gap-6">
+                     <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10">
+                        <div className="w-12 h-12 bg-[#00A896] rounded-xl flex items-center justify-center shadow-lg">
+                           <Users className="w-6 h-6 text-white" />
+                        </div>
                         <div className="text-left">
-                           <div className="flex items-center gap-1">
-                              {[1, 2, 3, 4, 5].map((i) => (
-                                 <Star key={i} className="w-4 h-4 text-[#F77F00] fill-current" />
-                              ))}
-                           </div>
-                           <p className="text-xs text-white/80 font-medium tracking-wide">Trusted by 50,000+ patients</p>
+                           <p className="text-2xl font-bold text-white leading-none">20+</p>
+                           <p className="text-xs text-white/60 font-medium">Expert Doctors</p>
                         </div>
                      </div>
 
-                     <div className="flex items-center gap-6">
-                        <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10">
-                           <div className="w-12 h-12 bg-[#00A896] rounded-xl flex items-center justify-center shadow-lg">
-                              <Users className="w-6 h-6 text-white" />
-                           </div>
-                           <div className="text-left">
-                              <p className="text-2xl font-bold text-white leading-none">20+</p>
-                              <p className="text-xs text-white/60 font-medium">Expert Doctors</p>
-                           </div>
+                     <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10">
+                        <div className="w-12 h-12 bg-[#F77F00] rounded-xl flex items-center justify-center shadow-lg">
+                           <Phone className="w-6 h-6 text-white" />
                         </div>
-
-                        <div className="flex items-center gap-3 bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10">
-                           <div className="w-12 h-12 bg-[#F77F00] rounded-xl flex items-center justify-center shadow-lg">
-                              <Phone className="w-6 h-6 text-white" />
-                           </div>
-                           <div className="text-left">
-                              <p className="text-2xl font-bold text-white leading-none">24/7</p>
-                              <p className="text-xs text-white/60 font-medium">Care Support</p>
-                           </div>
+                        <div className="text-left">
+                           <p className="text-2xl font-bold text-white leading-none">24/7</p>
+                           <p className="text-xs text-white/60 font-medium">Care Support</p>
                         </div>
                      </div>
+                  </div>
                </div>
             </div>
             {/* Bottom Curve/Shadow Decor */}
