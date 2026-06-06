@@ -2,6 +2,7 @@
 
 import { Award, Users, Heart, Stethoscope, Globe, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link";
 
 const OwnerPage = () => {
    const achievements = [
@@ -64,8 +65,8 @@ const OwnerPage = () => {
          {/* Founder Profile */}
          <section className="py-20 bg-white">
             <div className="container mx-auto px-6">
-               <div className="grid lg:grid-cols-2 gap-12 items-center">
-                  <div className="relative">
+               <div className="grid lg:grid-cols-1 gap-12 items-center">
+                  {/* <div className="relative">
                      <img
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3sxEw6DtEGqnq7hfRbU-YaP__kQC4Yvm4JQ&s"
                         alt="Mr. Vikram Singh"
@@ -78,7 +79,7 @@ const OwnerPage = () => {
                         <p className="text-sm font-semibold uppercase tracking-wide">Founder & CEO</p>
                         <p className="text-2xl font-bold">Mr. Vikram Singh</p>
                      </div>
-                  </div>
+                  </div> */}
 
                   <div className="space-y-6">
                      <div>
@@ -123,12 +124,14 @@ const OwnerPage = () => {
                      </div>
 
                      <div className="pt-4">
-                        <Button
-                           style={{ background: "linear-gradient(to right, #00A896, #028090)" }}
-                           className="text-white px-8 py-6 rounded-full text-base font-medium hover:shadow-lg"
-                        >
-                           Schedule Consultation
-                        </Button>
+                        <Link href="/contact">
+                           <Button
+                              style={{ background: "linear-gradient(to right, #00A896, #028090)" }}
+                              className="text-white px-8 py-6 rounded-full text-base font-medium hover:shadow-lg"
+                           >
+                              Schedule Consultation
+                           </Button>
+                        </Link>
                      </div>
                   </div>
                </div>
@@ -236,12 +239,14 @@ const OwnerPage = () => {
                <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
                   Learn more about Mr. Vikram's vision and how Samrat Hospital can serve your healthcare needs.
                </p>
-               <Button
-                  style={{ background: "linear-gradient(to right, #1E3A5F, #2B4A6F)" }}
-                  className="text-white px-8 py-6 rounded-full text-base font-medium hover:shadow-lg"
-               >
-                  Get in Touch
-               </Button>
+               <Link href="/contact">
+                  <Button
+                     style={{ background: "linear-gradient(to right, #1E3A5F, #2B4A6F)" }}
+                     className="text-white px-8 py-6 rounded-full text-base font-medium hover:shadow-lg"
+                  >
+                     Get in Touch
+                  </Button>
+               </Link>
             </div>
          </section>
       </div>
