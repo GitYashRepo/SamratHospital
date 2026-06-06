@@ -9,135 +9,124 @@ const DepartmentsPage = () => {
    const departments = [
       {
          id: 1,
-         icon: Heart,
-         name: "Cardiology",
+         icon: Activity,
+         name: "Anaesthesiology",
+         slug: "anaesthesiology",
          color: "from-[#D62828] to-[#F77F00]",
-         description:
-            "Comprehensive heart and cardiovascular care with advanced diagnostic and treatment options including interventional procedures.",
-         services: [
-            "Coronary Angiography",
-            "Angioplasty & Stenting",
-            "Pacemaker Implantation",
-            "Echocardiography",
-            "Cardiac Rehabilitation",
-         ],
-         doctors: 8,
-         beds: 24,
-         image: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=500&h=400&fit=crop",
+         description: "Comprehensive anesthesia services ensuring patient safety and comfort during surgical procedures and pain management.",
+         services: ["General Anesthesia", "Regional Anesthesia", "Local Anesthesia", "Sedation", "Pain Management"],
+         doctors: 5,
+         beds: 10,
+         image: "https://images.unsplash.com/photo-1512678080530-7760d81faba6?w=500&h=400&fit=crop",
       },
       {
          id: 2,
-         icon: Brain,
-         name: "Neurology & Neurosurgery",
-         color: "from-[#7B2D8E] to-[#9D4EDD]",
-         description:
-            "Advanced neurological care and neurosurgical services for brain and spine disorders with state-of-the-art imaging.",
-         services: [
-            "Brain Tumor Surgery",
-            "Spinal Surgery",
-            "Stroke Management",
-            "Epilepsy Treatment",
-            "Movement Disorder Clinic",
-         ],
-         doctors: 6,
-         beds: 18,
-         image: "https://images.unsplash.com/photo-1576091160597-112ba8d25d1d?w=500&h=400&fit=crop",
-      },
-      {
-         id: 3,
          icon: Bone,
-         name: "Orthopedics",
+         name: "Orthopaedic",
+         slug: "orthopaedic",
          color: "from-[#00A896] to-[#028090]",
-         description:
-            "Comprehensive orthopedic care including joint replacement, arthroscopy, and sports medicine with advanced rehabilitation.",
-         services: [
-            "Joint Replacement Surgery",
-            "Arthroscopic Surgery",
-            "Spine Surgery",
-            "Sports Medicine",
-            "Fracture Management",
-         ],
+         description: "Expert care for musculoskeletal conditions, including joint replacements, trauma surgery, and sports medicine.",
+         services: ["Joint Replacement", "Trauma Surgery", "Sports Medicine", "Arthroscopy", "Spine Surgery"],
          doctors: 7,
          beds: 20,
          image: "https://images.unsplash.com/photo-1576091160645-973c5f1e1dd4?w=500&h=400&fit=crop",
       },
       {
-         id: 4,
-         icon: Baby,
-         name: "Pediatrics",
-         color: "from-[#F77F00] to-[#FCBF49]",
-         description:
-            "Specialized care for infants, children, and adolescents with family-centered approach and dedicated pediatric facilities.",
-         services: [
-            "General Pediatrics",
-            "Pediatric Emergency",
-            "Neonatal Intensive Care",
-            "Pediatric Surgery",
-            "Child Development Center",
-         ],
-         doctors: 9,
-         beds: 28,
-         image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=500&h=400&fit=crop",
-      },
-      {
-         id: 5,
-         icon: Activity,
-         name: "Emergency Medicine",
-         color: "from-[#D62828] to-[#A31621]",
-         description: "24/7 emergency services with rapid response teams and trauma care for all medical emergencies.",
-         services: ["Trauma Care", "Emergency Surgery", "Resuscitation Services", "Poison Control", "Disaster Management"],
-         doctors: 12,
-         beds: 36,
-         image: "https://images.unsplash.com/photo-1579154204601-01d3f2d751ff?w=500&h=400&fit=crop",
-      },
-      {
-         id: 6,
+         id: 3,
          icon: Stethoscope,
          name: "General Medicine",
+         slug: "general-medicine",
          color: "from-[#1E3A5F] to-[#2B4A6F]",
-         description:
-            "Primary care and management of chronic diseases with comprehensive diagnostic and therapeutic services.",
-         services: ["Internal Medicine", "Infectious Diseases", "Endocrinology", "Gastroenterology", "Preventive Care"],
+         description: "Primary care and comprehensive management of adult diseases, focusing on prevention, diagnosis, and non-surgical treatment.",
+         services: ["Preventive Care", "Chronic Disease Management", "Infectious Diseases", "Endocrinology", "Internal Medicine"],
          doctors: 11,
          beds: 32,
          image: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=500&h=400&fit=crop",
       },
       {
-         id: 7,
-         icon: Users,
-         name: "Obstetrics & Gynecology",
+         id: 4,
+         icon: Activity,
+         name: "General Surgeon",
+         slug: "general-surgeon",
+         color: "from-[#7B2D8E] to-[#9D4EDD]",
+         description: "Advanced surgical care for a wide range of conditions, utilizing minimally invasive techniques for faster recovery.",
+         services: ["Appendectomy", "Hernia Repair", "Gallbladder Removal", "Gastrointestinal Surgery", "Minimally Invasive Surgery"],
+         doctors: 6,
+         beds: 15,
+         image: "https://images.unsplash.com/photo-1551076805-e1869033e561?w=500&h=400&fit=crop",
+      },
+      {
+         id: 5,
+         icon: Baby,
+         name: "Obs and Gynae",
+         slug: "obs-and-gynae",
          color: "from-[#F77F00] to-[#D62828]",
-         description:
-            "Comprehensive women's health services including obstetrics, gynecological surgery, and maternal care.",
-         services: [
-            "Prenatal Care",
-            "Delivery Services",
-            "Gynecological Surgery",
-            "Fertility Treatment",
-            "Women's Wellness",
-         ],
+         description: "Comprehensive women's healthcare, including maternity services, gynecological care, and family planning.",
+         services: ["Prenatal Care", "Delivery Services", "Gynecological Surgery", "Family Planning", "Women's Wellness"],
          doctors: 8,
          beds: 22,
          image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=500&h=400&fit=crop",
       },
       {
-         id: 8,
-         icon: Clock,
-         name: "Intensive Care Unit (ICU)",
+         id: 6,
+         icon: Heart,
+         name: "Anaesthesiology /Critical Care",
+         slug: "critical-care",
          color: "from-[#028090] to-[#00A896]",
-         description:
-            "Advanced critical care services with 24/7 monitoring, mechanical ventilation, and specialized equipment.",
-         services: [
-            "Respiratory Support",
-            "Hemodynamic Monitoring",
-            "Dialysis Services",
-            "Infection Control",
-            "Nutritional Support",
-         ],
+         description: "Specialized care for critically ill patients, providing life support, intensive monitoring, and advanced therapeutic interventions.",
+         services: ["Intensive Monitoring", "Life Support", "Ventilator Management", "Hemodynamic Support", "Post-operative Care"],
          doctors: 10,
          beds: 30,
          image: "https://images.unsplash.com/photo-1576090160399-112ba8d25d1d?w=500&h=400&fit=crop",
       },
+      {
+         id: 7,
+         icon: Brain,
+         name: "Neuro Surgery",
+         slug: "neuro-surgery",
+         color: "from-[#7B2D8E] to-[#9D4EDD]",
+         description: "Advanced surgical treatment for disorders of the brain, spinal cord, and peripheral nerves.",
+         services: ["Brain Tumor Surgery", "Spinal Surgery", "Nerve Repair", "Trauma Care", "Minimally Invasive Spine Surgery"],
+         doctors: 4,
+         beds: 12,
+         image: "https://images.unsplash.com/photo-1576091160597-112ba8d25d1d?w=500&h=400&fit=crop",
+      },
+      {
+         id: 8,
+         icon: Activity,
+         name: "Urology",
+         slug: "urology",
+         color: "from-[#D62828] to-[#A31621]",
+         description: "Expert diagnosis and treatment of conditions related to the urinary tract and male reproductive system.",
+         services: ["Kidney Stone Treatment", "Prostate Care", "Urinary Tract Infections", "Bladder Issues", "Men's Health"],
+         doctors: 5,
+         beds: 14,
+         image: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=500&h=400&fit=crop",
+      },
+      {
+         id: 9,
+         icon: Clock,
+         name: "Emergency",
+         slug: "emergency",
+         color: "from-[#F77F00] to-[#FCBF49]",
+         description: "24/7 rapid response and comprehensive medical care for acute illnesses and severe injuries.",
+         services: ["Trauma Care", "Cardiac Emergency", "Stroke Protocol", "Injury Treatment", "Triage"],
+         doctors: 12,
+         beds: 36,
+         image: "https://images.unsplash.com/photo-1579154204601-01d3f2d751ff?w=500&h=400&fit=crop",
+      },
+      {
+         id: 10,
+         icon: Activity,
+         name: "Interventional Pain Department",
+         slug: "interventional-pain",
+         color: "from-[#00A896] to-[#028090]",
+         description: "Specialized techniques and procedures to diagnose and treat acute and chronic pain conditions.",
+         services: ["Nerve Blocks", "Epidural Injections", "Joint Injections", "Radiofrequency Ablation", "Spinal Cord Stimulation"],
+         doctors: 3,
+         beds: 8,
+         image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&h=400&fit=crop",
+      }
    ]
 
    return (
@@ -243,15 +232,17 @@ const DepartmentsPage = () => {
                            </div>
 
                            {/* CTA */}
-                           <Button
-                              style={{
-                                 background: `linear-gradient(to right, ${dept.color.split(" to ")[0]}, ${dept.color.split(" to ")[1]})`,
-                              }}
-                              className="w-full text-white font-medium rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
-                           >
-                              Learn More
-                              <ArrowRight className="w-4 h-4" />
-                           </Button>
+                           <Link href={`/specialities/${dept.slug}`}>
+                              <Button
+                                 style={{
+                                    background: `linear-gradient(to right, ${dept.color.split(" to ")[0]}, ${dept.color.split(" to ")[1]})`,
+                                 }}
+                                 className="w-full text-white font-medium rounded-lg hover:opacity-90 transition-opacity flex items-center justify-center gap-2"
+                              >
+                                 Learn More
+                                 <ArrowRight className="w-4 h-4" />
+                              </Button>
+                           </Link>
                         </div>
                      </div>
                   ))}

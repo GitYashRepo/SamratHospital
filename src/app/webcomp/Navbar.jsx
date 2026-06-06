@@ -147,53 +147,74 @@ const Navbar = () => {
                      {mobileSpecialitiesOpen && (
                         <div className="bg-gray-50">
                            <a
-                              href="#"
-                              onClick={() => setMobileMenuOpen(false)}
-                              className="block py-2.5 px-4 text-sm text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-l-2 border-[#00A896]"
-                           >
-                              Emergency Care
-                           </a>
-                           <a
-                              href="#"
+                              href="/specialities/anaesthesiology"
                               onClick={() => setMobileMenuOpen(false)}
                               className="block py-2.5 px-4 text-sm text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-l-2 border-transparent hover:border-[#00A896]"
                            >
-                              Inpatient Specialities
+                              Anaesthesiology
                            </a>
                            <a
-                              href="#"
+                              href="/specialities/orthopaedic"
                               onClick={() => setMobileMenuOpen(false)}
                               className="block py-2.5 px-4 text-sm text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-l-2 border-transparent hover:border-[#00A896]"
                            >
-                              Outpatient Specialities
+                              Orthopaedic
                            </a>
                            <a
-                              href="#"
+                              href="/specialities/general-medicine"
                               onClick={() => setMobileMenuOpen(false)}
                               className="block py-2.5 px-4 text-sm text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-l-2 border-transparent hover:border-[#00A896]"
                            >
-                              Diagnostic Specialities
+                              General Medicine
                            </a>
                            <a
-                              href="#"
+                              href="/specialities/general-surgeon"
                               onClick={() => setMobileMenuOpen(false)}
                               className="block py-2.5 px-4 text-sm text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-l-2 border-transparent hover:border-[#00A896]"
                            >
-                              Surgery & ICU
+                              General Surgeon
                            </a>
                            <a
-                              href="#"
+                              href="/specialities/obs-and-gynae"
                               onClick={() => setMobileMenuOpen(false)}
                               className="block py-2.5 px-4 text-sm text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-l-2 border-transparent hover:border-[#00A896]"
                            >
-                              Rehabilitation Specialities
+                              Obs and Gynae
                            </a>
                            <a
-                              href="#"
+                              href="/specialities/critical-care"
                               onClick={() => setMobileMenuOpen(false)}
                               className="block py-2.5 px-4 text-sm text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-l-2 border-transparent hover:border-[#00A896]"
                            >
-                              Pharmacy Specialities
+                              Anaesthesiology/Critical Care
+                           </a>
+                           <a
+                              href="/specialities/neuro-surgery"
+                              onClick={() => setMobileMenuOpen(false)}
+                              className="block py-2.5 px-4 text-sm text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-l-2 border-transparent hover:border-[#00A896]"
+                           >
+                              Neuro Surgery
+                           </a>
+                           <a
+                              href="/specialities/urology"
+                              onClick={() => setMobileMenuOpen(false)}
+                              className="block py-2.5 px-4 text-sm text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-l-2 border-transparent hover:border-[#00A896]"
+                           >
+                              Urology
+                           </a>
+                           <a
+                              href="/specialities/emergency"
+                              onClick={() => setMobileMenuOpen(false)}
+                              className="block py-2.5 px-4 text-sm text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-l-2 border-transparent hover:border-[#00A896]"
+                           >
+                              Emergency
+                           </a>
+                           <a
+                              href="/specialities/interventional-pain"
+                              onClick={() => setMobileMenuOpen(false)}
+                              className="block py-2.5 px-4 text-sm text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-l-2 border-transparent hover:border-[#00A896]"
+                           >
+                              Interventional Pain
                            </a>
                         </div>
                      )}
@@ -319,46 +340,64 @@ const Navbar = () => {
                            }`}
                      >
                         <a
-                           href="#"
+                           href="/specialities/anaesthesiology"
                            className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
                         >
-                           Emergency Care
+                           Anaesthesiology
                         </a>
                         <a
-                           href="#"
+                           href="/specialities/orthopaedic"
                            className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
                         >
-                           Inpatient Specialities
+                           Orthopaedic
                         </a>
                         <a
-                           href="#"
+                           href="/specialities/general-medicine"
                            className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
                         >
-                           Outpatient Specialities
+                           General Medicine
                         </a>
                         <a
-                           href="#"
+                           href="/specialities/general-surgeon"
                            className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
                         >
-                           Diagnostic Specialities
+                           General Surgeon
                         </a>
                         <a
-                           href="#"
+                           href="/specialities/obs-and-gynae"
                            className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
                         >
-                           Surgery & ICU
+                           Obs and Gynae
                         </a>
                         <a
-                           href="#"
+                           href="/specialities/critical-care"
                            className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
                         >
-                           Rehabilitation Specialities
+                           Anaesthesiology/Critical Care
                         </a>
                         <a
-                           href="#"
+                           href="/specialities/neuro-surgery"
+                           className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
+                        >
+                           Neuro Surgery
+                        </a>
+                        <a
+                           href="/specialities/urology"
+                           className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
+                        >
+                           Urology
+                        </a>
+                        <a
+                           href="/specialities/emergency"
+                           className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors border-b border-gray-100"
+                        >
+                           Emergency
+                        </a>
+                        <a
+                           href="/specialities/interventional-pain"
                            className="block px-4 py-3 text-sm font-medium text-[#1E3A5F] hover:bg-[#00A896]/10 hover:text-[#00A896] transition-colors"
                         >
-                           Pharmacy Specialities
+                           Interventional Pain
                         </a>
                      </div>
                   </div>
