@@ -22,6 +22,45 @@ const Index = () => {
       { value: "24/7", label: "Emergency Care", icon: Clock },
    ];
 
+   const heroSlides = [
+      {
+         image: "/hospitalimg.webp",
+         title1: "Your Health Is Our",
+         titleHighlight: "Priority",
+         desc: "Experience world-class healthcare with compassion. Our team of expert physicians and state-of-the-art facilities ensure you receive the best care possible.",
+         badge: "Trusted Healthcare Since 2020",
+         strokeColor: "#F77F00",
+         highlightColor: "#00A896"
+      },
+      {
+         image: "/interior/img1.jpeg",
+         title1: "Advanced Medical",
+         titleHighlight: "Technology",
+         desc: "We invest in the latest medical technologies to ensure precise diagnoses, effective treatments, and the highest standards of patient safety.",
+         badge: "State-of-the-Art Facilities",
+         strokeColor: "#00A896",
+         highlightColor: "#F77F00"
+      },
+      {
+         image: "/interior/img2.jpeg",
+         title1: "Expert Care By",
+         titleHighlight: "Specialists",
+         desc: "Our highly trained professionals provide personalized care tailored to your unique health needs across multiple specialized departments.",
+         badge: "20+ Expert Doctors",
+         strokeColor: "#9D4EDD",
+         highlightColor: "#7B2D8E"
+      }
+   ];
+
+   const [currentSlide, setCurrentSlide] = useState(0);
+
+   useEffect(() => {
+      const timer = setInterval(() => {
+         setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+      }, 5000);
+      return () => clearInterval(timer);
+   }, [heroSlides.length]);
+
    const [doctors, setDoctors] = useState([]);
    const [doctorsLoading, setDoctorsLoading] = useState(true);
 
@@ -41,40 +80,48 @@ const Index = () => {
 
    return (
       <div className="min-h-screen bg-white">
-         {/* Full-Width Hero Banner */}
+         {/* Full-Width Hero Banner Slider */}
          <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
-            {/* Background Image with Overlay */}
-            <div className="absolute inset-0 z-0">
-               <img
-                  src="/hospitalimg.webp"
-                  alt="Modern Hospital Background"
-                  className="w-full h-full object-cover scale-105 animate-slow-zoom"
-               />
-               <div className="absolute inset-0 bg-gradient-to-b from-[#1E3A5F]/40 via-[#1E3A5F]/40 to-[#1E3A5F]/40" />
-            </div>
+            {/* Background Images */}
+            {heroSlides.map((slide, index) => (
+               <div 
+                  key={index}
+                  className={`absolute inset-0 z-0 transition-opacity duration-1000 ${currentSlide === index ? "opacity-100" : "opacity-0"}`}
+               >
+                  <img
+                     src={slide.image}
+                     alt="Hospital Banner"
+                     className={`w-full h-full object-cover transition-transform duration-[10000ms] ${currentSlide === index ? "scale-110" : "scale-100"}`}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-[#1E3A5F]/60 via-[#1E3A5F]/40 to-[#1E3A5F]/60" />
+               </div>
+            ))}
 
-            <div className="container mx-auto px-6 relative z-10 text-center">
-               <div className="max-w-4xl mx-auto space-y-8">
-                  <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md text-[#7DD3C0] px-6 py-2 rounded-full text-sm font-semibold border border-white/20 animate-fade-in-down">
-                     <Sparkles className="w-4 h-4" />
-                     <span>Trusted Healthcare Since 2020</span>
+            <div className="container mx-auto px-6 relative z-10 text-center flex flex-col items-center pt-10">
+               {/* Animated Slide Content */}
+               <div key={currentSlide} className="max-w-4xl mx-auto space-y-8 animate-fade-in min-h-[350px] flex flex-col justify-center">
+                  <div className="mx-auto w-fit">
+                     <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md text-[#7DD3C0] px-6 py-2 rounded-full text-sm font-semibold border border-white/20">
+                        <Sparkles className="w-4 h-4" />
+                        <span>{heroSlides[currentSlide].badge}</span>
+                     </div>
                   </div>
 
-                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight animate-fade-in">
-                     Your Health Is Our
+                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight">
+                     {heroSlides[currentSlide].title1}
                      <span className="relative inline-block ml-3">
-                        <span className="text-[#00A896]">Priority</span>
+                        <span style={{ color: heroSlides[currentSlide].highlightColor }}>{heroSlides[currentSlide].titleHighlight}</span>
                         <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 200 12" fill="none">
-                           <path d="M2 10C50 2 150 2 198 10" stroke="#F77F00" strokeWidth="4" strokeLinecap="round" />
+                           <path d="M2 10C50 2 150 2 198 10" stroke={heroSlides[currentSlide].strokeColor} strokeWidth="4" strokeLinecap="round" />
                         </svg>
                      </span>
                   </h1>
 
-                  <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto animate-fade-in-up">
-                     Experience world-class healthcare with compassion. Our team of expert physicians and state-of-the-art facilities ensure you receive the best care possible.
+                  <p className="text-lg md:text-xl text-white/90 leading-relaxed max-w-2xl mx-auto">
+                     {heroSlides[currentSlide].desc}
                   </p>
 
-                  <div className="flex flex-wrap items-center justify-center gap-6 pt-4 animate-fade-in-up">
+                  <div className="flex flex-wrap items-center justify-center gap-6 pt-4">
                      <Link href="book-appointment">
                         <Button className="bg-[#00A896] hover:bg-[#028090] text-white px-10 py-7 rounded-full text-lg font-bold shadow-2xl shadow-[#00A896]/30 transition-all hover:scale-105">
                            Book Appointment
@@ -86,9 +133,11 @@ const Index = () => {
                         Watch Video
                      </Button>
                   </div>
+               </div>
 
-                  <div className="flex flex-col md:flex-row items-center justify-center gap-8 pt-12 animate-fade-in">
-                     <div className="flex items-center gap-4 bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10">
+               {/* Static Decor Content */}
+               <div className="flex flex-col md:flex-row items-center justify-center gap-8 pt-8 z-20">
+                  <div className="flex items-center gap-4 bg-white/5 backdrop-blur-sm p-4 rounded-2xl border border-white/10">
                         <div className="flex -space-x-3">
                            {[1, 2, 3, 4].map((i) => (
                               <div key={i} className="w-10 h-10 rounded-full border-2 border-white overflow-hidden shadow-lg">
@@ -131,10 +180,8 @@ const Index = () => {
                            </div>
                         </div>
                      </div>
-                  </div>
                </div>
             </div>
-
             {/* Bottom Curve/Shadow Decor */}
             <div className="absolute bottom-0 left-0 w-full h-10 bg-gradient-to-t from-white to-transparent" />
          </section>
