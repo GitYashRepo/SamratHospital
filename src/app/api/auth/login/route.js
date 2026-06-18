@@ -12,9 +12,9 @@ export async function POST(req) {
     const directorCount = await User.countDocuments({ role: 'director' });
     if (directorCount === 0) {
       await User.create({
-        name: 'Director',
-        email: 'director@hospital.com',
-        password: 'directorpass123',
+        name: 'Vikram Singh',
+        email: 'samrathospitalrewari@gmail.com',
+        password: 'samrathospital2k26',
         role: 'director',
       });
     }
